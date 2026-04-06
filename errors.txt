@@ -1,0 +1,23 @@
+May frontend na pero nagkaroon Ng visual errors and may kulang pa especially sa dashboard after ko inaayos Yung back-end. So eto mga na list ko 
+
+Mga issues pa kasi is...
+<For admin dashboard:>
++ Nasira Yung backend connection for edit account
++ Hindi lumalabas mga modals sa question set > view / edit / create new question
++ Di Lumabas Yung modals sa user > view
++ Di Lumabas Yung modals sa admin/faculty > view
++ Hindi lumalabas Yung data sa event > table And Yung blog > table
++ Hindi rin gumana Yung accept/deny button for 'question set > pending question', 'event > pending event', 'blog > pending blog'
++ May error Lumabas sa approvals na side nav
+
+
+
+<For faculty dashboard:>
++ Dapat parehas Yung 'faculty dashboard > dashboard' sa 'admin dashboard > dashboard'
++ Walang edit sa edit account
++ Hindi makalabas Yung data maayos and di maka edit sa users, events at blogs
++ Need itanggal Yung approvals
+
+
+<For user dashboard:>
++ Wala data Lumabas sa 'My account' and 'edit account'
