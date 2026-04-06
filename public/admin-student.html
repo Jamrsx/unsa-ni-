@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a href="admin-dashboard.html">Dashboard</a></li>
+      <li><a href="admin-edit-account.html">Edit Account</a></li>
+      <li><a href="admin-events.html">Events</a></li>
+      <li><a href="admin-student.html" class="active">Student Management</a></li>
+      <li><a href="admin-management.html">Admin Management</a></li>
+      <li><a href="admin-reports.html">Reports</a></li>
+      <li><a href="admin-audit.html">Audit Trail</a></li>
+      <li><a href="admin-backup.html">System Backup</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>Student Management</h1>
+    </header>
+
+    <section class="content">
+      <form class="search-form">
+        <input type="text" placeholder="Search student by name or ID">
+        <button type="button">Search</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025001</td>
+            <td>Finch Josephine</td>
+            <td>finch.j@example.com</td>
+            <td>BSIT</td>
+            <td>Active</td>
+            <td>
+              <button>Edit</button>
+              <button class="danger">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+:root {
+    --c_greenmain: #49C230;
+    --c_whitemain: #FFF9F9;
+    --c_darkmain: #323A32;
+    --c_yellowconstrastsat: #FFC821;
+    --c_yellowconstrastsat_light: #fffb2b;
+    --c_redwarning: #e63737;
+    --c_darktrans: rgba(24, 24, 24, 0.7);
+    --c_darkgreen: #151614;
+    --c_darkgreenpop: #156305;
+    --c_orangepop: #FF670F;
+    --c_lightcoding: #97ADAB;
+    --c_slightlightcoding: #495251;
+    --c_mediumcoding: #37403F;
+    --c_backgroundcoding: #272F2E;
+    --c_bluecodingfont: #2BC1BC;
+    --c_orangecodingfont: #D08A35;
+}
+
+html{
+    height: 100%;
+}
+
+header {
+    background-color: var(--c_darkgreen) !important;
+    width: 100% !important;
+    height: fit-content !important;
+    margin: 0px !important;
+}
+header #header_app{
+    width: 100%;
+    padding: 0px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    height: 100%;
+}
+
+/* removes bs-gutter-x row from bootstrap, idk why its necessary */
+html body .row{
+    --bs-gutter-x: 0;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeDuel | Room</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mainpage.css">
+  <link rel="stylesheet" href="css/lobbyroom.css">
+
+  <!-- bootstrap module -->
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+  <script src="css/bootstrap/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .main-container {
+      background: url(asset/general/wavy-bg.png) no-repeat center;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="header_app"></div>
+  </header>
+
+  <main class="main-container room-container">
+    <div id="room_app" class="flex-container">
+      <!-- 
+      • Section
+        • Window
+          ○ Player grid
+            § Player icon
+            § + icon as last
+        • Window
+          ○ Chatbox
+            § Chat center
+            § Chat field
+      • Section
+        • Window
+          ○ Room settings (form prevent submit)
+            § Col
+              □ Panel
+                ® Name
+                ® Description
+                ® Visibility Mode
+              □ Panel
+                ® Modal choose problem set
+                ® Fastest Mode
+                ® Shortest Mode
+                ® Debug Mode
+                ® Timer
+              □ Panel
+                ® Modal select topics and filter
+                ® Difficulty dropdown
+                ® Allow Spectator Mode
+            § Col
+              □ Panel
+                ® Modal invite people
+                ® Room pin
+                ® Invite Code (generated and field disabled) 
+        -->
+    <!-- </div>
+  </main>
+
+  <section id="room-section">
+    <h2>Room</h2>
+  
+    <div class="room-players"> -->
+      <!-- Each player box -->
+      <!-- <div class="player">
+        <span>@</span>
+        <p>Username</p>
+      </div>
+      <div class="player">
+        <span>@</span>
+        <p>Username</p>
+      </div>
+      <div class="player">
+        <span>@</span>
+        <p>Username</p>
+      </div>
+      <div class="player add-player">
+        <span>+</span>
+      </div>
+    </div>
+  
+    <div class="room-actions">
+      <button id="start-duel-btn">START DUEL</button>
+    </div>
+  
+    <div class="chat-section">
+      <h3>Chat</h3>
+      <div id="chat-box"></div>
+      <input type="text" placeholder="Type a message...">
+      <button>Send</button>
+    </div>
+  </section> -->
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+  <!-- Socket.IO is bundled in main.js via Vite, no need for separate script tags -->
+</body>
+</html>

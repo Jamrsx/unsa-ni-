@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeDuel | Leaderboards</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mainpage.css">
+  <link rel="stylesheet" href="css/leaderboard.css">
+  
+  <!-- bootstrap module -->
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+  <script src="css/bootstrap/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .main-container {
+      background: url(asset/general/wavy-bg.png) no-repeat center;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="header_app"></div>
+  </header>
+
+  <main class="main-container leaderboard-container">
+      <div id="leaderboard_app"></div>
+  </main>
+
+  <!-- <section id="leaderboard">
+    <h2>Leaderboards</h2>
+  
+    <div class="filter-bar">
+      <input type="text" placeholder="Player Username">
+      <select>
+        <option>Most Used Language</option>
+        <option>Python</option>
+        <option>Java</option>
+        <option>PHP</option>
+      </select>
+      <input type="text" placeholder="Country">
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player Username</th>
+          <th>Duel Points</th>
+          <th>Most Used Language</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Username1234</td>
+          <td>389,112</td>
+          <td>Python</td>
+          <td>Philippines 🇵🇭</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Username2049</td>
+          <td>389,100</td>
+          <td>Python</td>
+          <td>Philippines 🇵🇭</td>
+        </tr> -->
+        <!-- Additional rows dynamically rendered -->
+      <!-- </tbody>
+    </table>
+  </section> -->
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+</body>
+</html>

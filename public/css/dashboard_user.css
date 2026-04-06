@@ -1,0 +1,194 @@
+#user-dash_app .body-window{
+    /* vue window component */
+    padding: 0px;
+}
+#user-dash_app > section{
+    width: 100%;
+}
+/* table styles (mirrored from admin for consistency) */
+.user-dashboard #user-dash_app .table-responsive {
+    overflow: hidden;
+    max-height: 85vh;
+    overflow-y: scroll;
+}
+
+.user-dashboard #user-dash_app .table-responsive table {
+    color: var(--c_whitemain);
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+}
+
+.user-dashboard #user-dash_app .table-responsive table thead {
+    background-color: var(--v_table-background, var(--c_darkgreen));
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.user-dashboard #user-dash_app .table-responsive table tbody tr {
+    background-color: var(--c_backgroundcoding);
+    border: 0px none transparent;
+    vertical-align: middle;
+}
+
+.user-dashboard #user-dash_app .table-responsive table tbody tr:nth-child(odd) {
+    background-color: var(--c_slightlightcoding);
+}
+
+.user-dashboard #user-dash_app .table-responsive table tbody tr td:first-child {
+    border-top-left-radius: var(--v_table-radius, 60px);
+    border-bottom-left-radius: var(--v_table-radius, 60px);
+}
+
+.user-dashboard #user-dash_app .table-responsive table tbody tr td:last-child {
+    border-top-right-radius: var(--v_table-radius, 60px);
+    border-bottom-right-radius: var(--v_table-radius, 60px);
+}
+/* account */
+#user-dash_app .split-layout img.profile-pic_icon {
+    background-color: var(--c_whitemain);
+    max-width: 200px;
+}
+
+#user-dash_app .split-layout .row-account {
+    display: flex;
+}
+
+#user-dash_app .split-layout .row-account .col:nth-child(1) {
+    flex: 0 1 0%;
+    margin-right: 20px;
+}
+#user-dash_app .split-layout .row-account .col:nth-child(2).row-account-detail{
+    /* your account > username, email and edit's container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#user-dash_app .split-layout .row-account .col:nth-child(2).row-account-detail .col h1 {
+    margin: 0px;
+    /* the font siae and wieght is used by bootstrap, look for me */
+}
+#user-dash_app .split-layout .row-account .col:nth-child(2).row-account-detail .col p{
+    color: var(--c_lightcoding);
+}
+
+/* my_account */
+    /* statistics */
+    #user-dash_app .split-layout #my_account .row-account .col:nth-child(2).row-account-detail .col:nth-child(2){
+        /* your account > edit button */
+        flex: 0 1 0%;
+    }
+
+    #user-dash_app .split-layout #my_account .row-statistics{
+        display: flex;
+        flex-direction: row;
+    }
+    #user-dash_app .split-layout #my_account .row-statistics .row-level-and-duelpoints{
+        display: flex;
+        flex-direction: row;
+        border-right: 2px solid var(--c_whitemain);
+        flex: 1 0 70%;
+    }
+    #user-dash_app .split-layout #my_account .row-statistics .row-level-and-duelpoints .col{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #user-dash_app .split-layout #my_account .row-statistics .row-player-brief-stat{
+        flex: 1 1 30%;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+/* edit_account */
+    /* form */
+    #user-dash_app .split-layout #edit_account form.row-edit-account{
+        flex-direction: column;
+    }
+    #user-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(1){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 10px 0px 10px 0px;
+    }
+    #user-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(1) .form-control{
+        background-color: var(--c_slightlightcoding);
+        border: none;
+        color: var(--c_lightcoding);
+    }
+    #user-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(2){
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        gap: 10px;
+    }
+    #user-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(2) > *{
+        /* buttons cancel and save */
+        max-width: 200px;
+        padding: 10px;
+        border-radius: 20px;
+    }
+    #user-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(2) > .edit_account_cancel_button{
+        /* buttons cancel and save */
+        background-color: var(--c_slightlightcoding);
+        color: var(--c_whitemain);
+    }
+
+/* match history */
+    #user-dash_app .split-layout #match_history .vertical-carousel-container .vertical-carousel-scroll .scroll-card{
+        gap: 10px;
+    }
+    #user-dash_app .split-layout #match_history .vertical-carousel-container .vertical-carousel-scroll{
+        max-height: 60vh;
+    }
+/* email */
+    #user-dash_app .split-layout #mail .mail-container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 10px;
+    }
+    #user-dash_app .split-layout #mail .vertical-carousel-container .vertical-carousel-scroll{
+        max-height: 60vh;
+    }
+/* My question */
+#user-dash_app .split-layout #my_questions .split-section section:nth-child(1){
+    width: 100%;
+}
+
+/* My Questions layout */
+.myq-layout {
+    align-items: stretch;
+}
+
+.myq-layout .window {
+    margin-bottom: 1rem;
+}
+
+.myq-layout .window .window__content {
+    background: #0c0f1a;
+}
+
+.myq-layout .window h5 {
+    margin-top: 0.5rem;
+}
+
+.myq-layout .status-section {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.myq-layout .status-section:last-of-type {
+    border-bottom: none;
+}
+
+.myq-layout .no-questions-msg {
+    color: #9ba4b5;
+    font-size: 0.95rem;
+}
+
+.myq-layout .modal-button {
+    width: 100%;
+}

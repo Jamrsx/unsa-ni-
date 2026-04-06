@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | CodeDuel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mainpage.css">
+  <link rel="stylesheet" href="css/home.css">
+
+  <!-- bootstrap module -->
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+  <script src="css/bootstrap/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+  <style>
+    .main-container{
+      background: url(asset/general/wavy-bg.png) no-repeat center;
+      background-size: cover;
+    }
+  </style>
+</head>
+<header>
+  <div class="flex-container" id="header_app"></div>
+</header>
+<body>
+  <!-- Auth check -->
+  <script type="module">
+    import { auth } from "/src/js/auth.js";
+    auth();
+  </script>
+
+  <!-- Main Container -->
+  <main class="main-container home-container">
+
+    <!-- HOME MENU (Default) -->
+    <div class="flex-container" id="home_app">
+      <!-- section -->
+        <!-- window -->
+          <!-- row -->
+            <!-- carousell -->
+          <!-- row -->
+            <!-- carousell -->
+      <!-- section -->
+        <!-- window -->
+        <!-- window -->
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+</body>
+
+</html>

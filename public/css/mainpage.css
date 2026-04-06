@@ -1,0 +1,1327 @@
+.main-container{
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+}
+.main-container > div{
+    height: inherit;
+    min-height: 100vh;
+}
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 50px;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+}
+
+/* better not touch 60-40% */
+/* .flex-container section:nth-child(1){
+    width: 60%;
+} */
+.flex-container section:nth-child(2) {
+    width: 40%;
+}
+
+/* elements located on vue components */
+/* header.vue */
+    .header{
+        height: inherit;
+        width: inherit;
+    }
+    .header > .row{
+        height: inherit;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .header>.row>.col{
+        height: inherit;
+        padding: 0px;
+    }
+    .header .row .col .header-menu, .header .row .col .header-profile{
+        display: flex;
+        flex-direction: row;
+        text-wrap: nowrap;
+    }
+
+    .header .row .col .header-menu .header-menu-title h3{
+        color: var(--c_whitemain);
+    }
+    .header .row .col .header-menu .header-menu-goto{
+        align-content: center;
+    }
+    #header_app>div>div>div>div>div.header-menu-goto>ul>li>.txt-btn{
+        background-color: transparent;
+        color: var(--c_whitemain);
+        border: none;
+        padding: 0px;
+    }
+    
+    .header .header-profile .header-profile-settings{
+        display: flex;
+        flex-direction: row;
+    }
+    .header .header-profile .header-profile-settings #setting_btn,
+    .header .header-profile .header-profile-settings #notification_btn{
+        width: fit-content;
+        height: fit-content;
+        background-color: transparent;
+    }
+    .header .header-profile .header-profile-settings #setting_btn i.bi-gear-fill,
+    .header .header-profile .header-profile-settings #notification_btn i.bi-bell-fill{
+        color: var(--c_whitemain);
+    }
+    .header .profile-pic_icon {
+        max-width: 25px;
+    }
+
+    
+    /* style the notification elements here */
+        .header .header-profile .header-profile-settings .notification-wrap{
+            position: relative;
+            display: inline-block;
+        }
+
+        .header .header-profile .header-profile-settings .notification-wrap .modal-button{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border-radius:6px;
+            background:transparent;
+            border:none;
+            position:relative;
+            z-index:1;
+        }
+
+        .header .header-profile .header-profile-settings .notification-wrap .modal-button i{
+            font-size:1.05rem;
+        }
+
+        .header .header-profile .header-profile-settings .notification-wrap .notification-pill{
+            position:absolute;
+            bottom:0px;
+            right:0px;
+            background:#e53935;
+            color:#ffffff;
+            border-radius:999px;
+            padding:2px 7px;
+            font-size:0.7rem;
+            line-height:1;
+            box-shadow:0 2px 6px rgba(0,0,0,0.18);
+            pointer-events:none;
+            z-index:2;
+        }
+        /* header-notification-dropdown-menu styles */
+            .header .header-profile .header-profile-settings .header-notif-wrapper {
+                position: relative;
+                display: inline-block;
+            }
+    
+            .header .header-profile .header-profile-settings .header-notif-wrapper .notif-dropdown {
+                position: absolute;
+                right: 0;
+                top: calc(100% - 6px);
+                width: 320px;
+                max-height: 360px;
+                background: #ffffff;
+                border-radius: 8px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+                padding: 8px;
+                z-index: 1200;
+            }
+    
+            .header .header-profile .header-profile-settings .header-notif-wrapper .notif-dropdown-header {
+                padding: 6px 8px;
+                border-bottom: 1px solid #eee;
+            }
+    
+            .header .header-profile .header-profile-settings .header-notif-wrapper .notif-dropdown-body {
+                padding: 8px 6px;
+                max-height: 300px;
+                overflow: hidden;
+            }
+    
+            .header .header-profile .header-profile-settings .header-notif-wrapper .notif-dropdown-footer {
+                padding: 6px 8px;
+                border-top: 1px solid #eee;
+                text-align: right;
+            }
+    
+            .header .header-profile .header-profile-settings .header-notif-wrapper .notif-dropdown .vertical-carousel-container {
+                width: 100%
+            }
+    
+            .header .header-profile .header-profile-settings .header-notif-wrapper .notif-dropdown .scroll-card {
+                margin-bottom: 6px
+            }
+    /* end notification styles */
+
+
+    .header .header-profile .header-profile-profile #profile_pic{
+        display: flex;
+        flex-direction: row;
+    }
+    .header .header-profile .header-profile-profile .img-btn{
+        background-color: transparent;
+    }
+    .header .header-profile .header-profile-profile #profile_pic p#username{
+        color: var(--c_whitemain);
+        /* vertical align text */
+        margin: auto auto auto 10px;
+        align-self: center;
+    }
+
+    /* header-dropdown-menu.vue styles */
+    .header .header-dropdown {
+        display: inline-block;
+    }
+
+    .header .header-dropdown-trigger {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .header .dropdown-menu {
+        display: block;
+        margin-top: 8px;
+        background: var(--c_whitemain);
+        border: 1px solid rgba(21,22,20,0.06); /* soft border that pairs with dark header */
+        box-shadow: 0 10px 30px rgba(20,20,20,0.08);
+        border-radius: 6px;
+        min-width: 180px;
+        padding: 6px 0;
+    }
+
+    .header .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: 8px 12px;
+        text-align: left;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: box-shadow 120ms ease, background 120ms ease, transform 120ms ease;
+        border-radius: 4px;
+        color: var(--c_darkgreen);
+        font-weight: 600;
+    }
+
+    .header .dropdown-item:hover {
+        background: linear-gradient(180deg, rgba(73,194,48,0.06), rgba(73,194,48,0.02));
+        box-shadow: 0 10px 30px rgba(73,194,48,0.12), 0 0 10px rgba(73,194,48,0.08) inset;
+        transform: translateY(-1px);
+    }
+
+    .header .dropdown-item:active {
+        transform: translateY(0);
+    }
+
+    .header .dropdown-menu::after{
+        /* subtle glow to make the menu feel lifted */
+        content: '';
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        bottom: -8px;
+        height: 12px;
+        background: radial-gradient(circle at 50% 0%, rgba(73,194,48,0.14), rgba(73,194,48,0) 40%);
+        border-radius: 8px;
+        pointer-events: none;
+    }
+
+    .header .fade-enter-active, .header .fade-leave-active {
+        transition: opacity 150ms ease;
+    }
+    .header .fade-enter-from, .header .fade-leave-to {
+        opacity: 0;
+    }
+
+/* window.vue */
+.body-window{ 
+    color: var(--c_whitemain);
+    background-color: var(--c_darktrans);
+    padding: 30px;
+    margin: 20px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+.body-window h3{
+    margin: 0px;
+}
+
+/* button-img.vue */
+.img-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    background: var(--c_whitemain);
+    cursor: pointer;
+    padding: 8px;
+}
+.img-btn_logo {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+}
+.img-btn_title {
+    margin: 0px;
+    font-weight: bolder;
+    font-size: 1.5em;
+    text-align: center;
+}
+.img-btn_desc {
+    margin: 0px;
+    font-size: 0.9em;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+/* button-text.vue */
+.txt-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+
+    /* button style */
+    border-radius: 15px;
+    font-weight: bold;
+    border: none;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.txt-btn_logo{
+    max-width: 25px;
+    max-height: 25px;
+    object-fit: contain;
+}
+
+/* score-label.vue */
+.score-label {
+    text-align: center;
+    color: var(--c_whitemain);
+}
+.score-label h1#score-label-title{
+    margin: 0px;
+    font-weight: bolder;
+}
+.score-label p#score-label-subtitle {
+    margin-bottom: 2px;
+    color: var(--c_lightcoding);
+    font-size: smaller;
+}
+
+/* card-thumb.vue */
+.card-thumb{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    overflow: hidden;
+}
+.card-thumb .card-thumb_img{
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.card-thumb .card-thumb_img img{
+    border-radius: 10px;
+}
+.card-thumb_link{
+    padding: 10px;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 15px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.card-thumb_link:hover{
+    color: inherit;
+    background-color: var(--c_slightlightcoding);
+}
+
+/* carousel.vue */
+.carousel-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 16px 0;
+}
+
+.carousel-scroll {
+    display: flex;
+    gap: 16px;
+}
+
+/* player-match-label.vue */
+.player-match-label {
+    display: flex;
+    flex-direction: column;
+}
+
+/* testcase-carousel.vue */
+.testcase-carousel .onboarding-testcase-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.testcase-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    max-height: 500px;
+    padding: 0px 16px 16px 16px;
+}
+
+/* testcase-card.vue */
+.testcase-card{
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.testcase-card-right {
+    width: 100%;
+}
+
+.testcase-checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+/* testcase-io */
+.io-row {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.io-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.io-input label {
+    color: var(--c_bluecodingfont);
+}
+
+.io-output label {
+    color: var(--c_orangecodingfont);
+}
+
+.io-value {
+    background: var(--c_slightlightcoding);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-top: 4px;
+}
+
+/* dropdown-array.vue */
+.dropdown-select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+/* codeeditor.vue */
+    .code-editor {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        border: 1px solid var(--c_slightlightcoding);
+        border-radius: 6px;
+        overflow: hidden;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+        background: var(--c_backgroundcoding);
+        /* ensure the parent can control size; the component itself fills parent */
+        box-sizing: border-box;
+    }
+
+    /* left gutter with numbers */
+    .code-editor .line-numbers {
+        background: var(--c_lightcoding);
+        padding: 8px 10px;
+        user-select: none;
+        text-align: right;
+        min-width: 48px;
+        /* adjust to allow bigger line count numbers */
+        max-width: 120px;
+        overflow-y: hidden;
+        /* must be scrollable so we can sync scrollTop */
+        overflow-x: hidden;
+        border-right: 1px solid var(--c_slightlightcoding);
+        box-sizing: border-box;
+    }
+
+    /* ensure numbers line up: margin 0, same line-height as textarea */
+    .code-editor .line-numbers pre {
+        margin: 0;
+        line-height: 2;
+        font-size: 13px;
+        color: var(--c_darkgreen);
+        padding: 0;
+        white-space: pre;
+    }
+
+    /* editor occupies remaining space */
+    .code-editor .editor-wrap {
+        flex: 1;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    /* the textarea itself */
+    .code-editor .editor-textarea {
+        width: 100%;
+        height: 100%;
+        resize: none;
+        border: 0;
+        outline: none;
+        padding: 8px 12px;
+        box-sizing: border-box;
+        font-family: inherit;
+        line-height: 2;
+        font-size: 13px;
+        /* match .line-numbers pre line-height */
+        overflow-y: auto;
+        overflow-x: auto;
+        background: transparent;
+        color: var(--c_whitemain);
+        white-space: pre;
+        /* prevent collapsing spaces; for true code feel */
+        caret-color: auto;
+    }
+
+    /* remove native focus outline but keep accessible focus style */
+    .code-editor .editor-textarea:focus {
+        outline: none;
+    }
+
+    /* responsiveness tweaks */
+    @media (max-width: 420px) {
+        .code-editor .line-numbers {
+            min-width: 36px;
+            padding: 6px 6px;
+        }
+
+        .code-editor .editor-textarea {
+            padding: 6px 8px;
+            font-size: 12px;
+        }
+    }
+
+/* profile-pic.vue */
+.profile-pic_icon {
+    border-radius: 100%;
+}
+
+/* match-timer.vue */
+.match-timer-bar {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 20px;
+}
+
+.match-timer-bar-fill {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+}
+
+/* modal.vue */
+    /* ====== Modal Custom Style ====== */
+    .modal .custom-modal {
+        border-radius: 1rem;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+        border: none;
+        padding: 0.5rem 1rem;
+    }
+
+    /* ====== Header ====== */
+    .modal .modal-title {
+        font-size: 1.25rem;
+        color: #343a40;
+    }
+
+    /* ====== Body ====== */
+    .modal .modal-body {
+        padding: 1.5rem 1rem;
+        color: var(--c_slightlightcoding);
+    }
+
+/* modal-button.vue */
+/* ====== Buttons ====== */
+    .modal-button .open-btn {
+        padding: 0.6rem 1.2rem;
+        font-weight: 500;
+        border-radius: 0.5rem;
+    }
+
+    .modal-button .btn-light {
+        border: 1px solid #dee2e6;
+        transition: background 0.2s;
+    }
+
+    .modal-button .btn-light:hover {
+        background-color: #e9ecef;
+    }
+
+    .modal-button .btn-primary {
+        background-color: #0d6efd;
+        border: none;
+        transition: background 0.2s;
+    }
+
+    .modal-button .btn-primary:hover {
+        background-color: #0b5ed7;
+    }
+
+
+/* scroll-vertical-carousel.vue */
+.vertical-carousel-container {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.vertical-carousel-container .vertical-carousel-scroll {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.vertical-carousel-container .vertical-carousel-scroll .scroll-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px 20px;
+}
+
+/* toggle-button.vue */
+.toggle-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle-button .switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+
+.toggle-button .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-button .slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 34px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+}
+
+.toggle-button .slider:before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.toggle-button input:checked+.slider {
+    background-color: #2196f3;
+}
+
+.toggle-button input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+
+/* slider-range.vue */
+.slider-container {
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+    gap: 8px;
+    width: 220px;
+}
+
+.slider-container .slider-label {
+    font-weight: 500;
+}
+
+.slider-container .slider {
+    width: 100%;
+    accent-color: #2196f3;
+    cursor: pointer;
+}
+
+.slider-container .slider-value {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+
+
+/* room-panel.vue */
+.room-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: #1e1e2f;
+    border-radius: 12px;
+    color: #fff;
+    width: 100%;
+}
+
+.room-panel .panel-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-height: 550px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.room-panel .room-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* room-panel-card.vue */
+.room-panel-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
+    background: #2b2b3c;
+    border-radius: 10px;
+    color: #ccc;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.room-panel-card:hover {
+    transform: scale(1.03);
+}
+
+.room-panel-card .waiting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.room-panel-card .spinner-border {
+    width: 40px;
+    height: 40px;
+    opacity: 0.7;
+}
+
+/* room-player-info.vue */
+.room-player-info .player-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.room-player-info .player-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #3f51b5;
+    object-fit: cover;
+}
+
+.room-player-info .player-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.room-player-info .player-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.room-player-info .player-id {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.room-player-info .tooltip {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #111;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    opacity: 0.95;
+}
+
+
+
+/* search-panel.vue with search-checkbox-group.vue */
+    /* search-panel.vue */
+    .search-panel h5{
+        color: var(--c_whitemain);
+    }
+    .search-panel{
+        color: var(--c_lightcoding);
+    }
+    .search-panel input{
+        background-color: var(--c_slightlightcoding);
+    }
+    .search-panel button {
+        background-color: var(--c_slightlightcoding);
+        color: var(--c_lightcoding);
+    }
+    .search-panel select {
+        background-color: var(--c_slightlightcoding);
+        color: var(--c_lightcoding);
+    }
+    .search-panel .search-panel-bar div input{
+        flex: 1;
+    }
+    .search-panel .search-panel-topics .search-panel-topics-grid{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px;
+    }
+
+    /* search-checkbox-group.vue */
+    .search-panel .search-checkbox-btn{
+        padding: 10px 5px 10px 5px;
+        border-radius: 60px;
+        border: none;
+    }
+    .search-panel .search-checkbox-btn-enable{
+        background-color: var(--c_lightcoding);
+        color: var(--c_backgroundcoding);
+    }   
+
+/* search-bar-and-sort.vue */
+.search-bar-and-sort input.search-bar{
+    border: none; /* not work for now, must overwrite from browser but its aginst standard */
+}
+
+/* game-result-panel.vue */
+.game-result-panel .game-result-player {
+    display: flex;
+    flex-direction: row;
+}
+
+.game-result-panel .game-result-player .result-player-card {
+    background-color: var(--c_lightcoding);
+    padding: 40px 10px 10px 10px;
+    margin: 10px;
+}
+
+.game-result-panel .game-result-player .result-player-card.win{
+    background-color: var(--c_yellowconstrastsat);
+}
+.game-result-panel .game-result-player .result-player-card.win .game-result-player h3 {
+    color: var(--c_whitemain);
+}
+.game-result-panel .game-result-player .result-player-card.win .game-result-player hr {
+    background-color: var(--c_orangecodingfont);
+}
+.game-result-panel .game-result-player .result-player-card:not(.win) .game-result-player .game-result-player-crown {
+    display: none;
+}
+.game-result-panel .game-result-player .result-player-card.win .game-result-player .game-result-player-crown {
+    display: block;
+}
+.game-result-panel .game-result-player .result-player-card.win .game-result-detail p{
+    color: var(--c_whitemain);
+}
+.game-result-panel .game-result-player .result-player-card.win .game-result-detail h6 {
+    color: var(--c_whitemain);
+}
+.game-result-panel .game-result-player .result-player-card.win .game-result-detail .game-result-detail-item .icon img {
+    background-color: var(--c_orangecodingfont);
+}
+
+.game-result-panel .game-result-player .result-player-card .game-result-player {
+    padding: 20px 0px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--c_darkmain);
+}
+
+.game-result-panel .game-result-player .result-player-card .game-result-player .game-result-player-crown{
+    position: absolute;
+    transform: translate(0px,-140px);
+    display: block;
+}
+
+.game-result-panel .game-result-player .result-player-card .game-result-player .profile-pic_icon {
+    max-width: 100px;
+}
+
+.game-result-panel .game-result-player .result-player-card .game-result-player hr {
+    width: 100%;
+    height: 10px;
+    background-color: var(--c_darkmain);
+    opacity: 1;
+}
+
+.game-result-panel .game-result-player .result-player-card .game-result-detail{
+    grid-template-columns: auto auto;
+}
+
+/* game-result-detail-item.vue */
+.game-result-detail-item{
+    flex-direction: row;
+    color: var(--c_darkmain);
+}
+
+.game-result-detail-item .icon{
+    flex: 0;
+}
+
+.game-result-detail-item .icon img{
+    flex-direction: row;
+    background-color: var(--c_darkmain);
+    border-radius: 100%;
+    padding: 5px;
+    max-width: 50px;
+}
+.game-result-detail-item .label > p{
+    margin: 0px;
+}
+
+/* player-stat-level.vue */
+.player-stat-level {
+    width: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.player-stat-level .level-ring{
+    position: inherit;
+}
+.player-stat-level .level-ring .progress-ring {
+    transform: rotate(-90deg);
+}
+
+.player-stat-level .level-ring .progress-ring-bg {
+    fill: none;
+    stroke: var(--c_darkgreenpop);
+}
+
+.player-stat-level .level-ring .progress-ring-progress {
+    fill: none;
+    stroke: var(--c_greenmain);
+    stroke-linecap: square;
+    transition: stroke-dashoffset 0.4s ease;
+}
+
+.player-stat-level .level-ring .level-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--c_whitemain);
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.player-stat-level .exp-text {
+    font-size: 0.8em;
+    color: var(--c_slightlightcoding);
+}
+
+/* player-stat-level-mini.vue */
+.player-stat-level-mini {
+    width: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-stat-level-mini .level-ring {
+    position: inherit;
+}
+
+.player-stat-level-mini .level-ring .progress-ring {
+    transform: rotate(-90deg);
+}
+
+.player-stat-level-mini .level-ring .progress-ring-bg {
+    fill: var(--c_greenmain);
+}
+
+.player-stat-level-mini .level-ring .level-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--c_whitemain);
+    font-size: 0.6em;
+    font-weight: bold;
+}
+
+/* player-stat-duel-point.vue */
+.player-stat-duel-point {
+    width: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-stat-duel-point .level-ring {
+    position: inherit;
+}
+
+.player-stat-duel-point .level-ring .progress-ring .ring-bg{
+    fill: var(--c_lightcoding);
+}
+
+.player-stat-duel-point .level-ring .rank-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--c_darkmain);
+    font-weight: bold;
+}
+
+.player-stat-duel-point .points-text {
+    color: var(--c_lightcoding);
+}
+
+/* SPLIT WINDOW */
+    /* split-main-window.vue */
+        .split-layout {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+
+        .split-layout aside.row {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .split-layout aside {
+            flex: 0 1 15%;
+            width: auto;
+            background: var(--c_mediumcoding);
+
+            font-weight: lighter;
+        }
+
+        .split-layout aside nav ul{
+            margin-top: 20px;
+            padding: 0px;
+        }
+
+        .split-layout aside .split-aside-logout{
+            background-color: transparent;
+            color: var(--c_whitemain);
+            flex: 0 1 0%;
+            padding: 10px;
+
+            /* overrides button text justify content which it has already display flex */
+            justify-content: end;
+        }
+
+        .split-layout .content-area {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+    /* split-navigatioan-view.vue */
+        .nav-item {
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+            padding: 10px;
+            transition: background 0.2s;
+        }
+
+        .nav-item:hover {
+            background: var(--c_slightlightcoding);
+        }
+
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-item:active {
+            background: #ddd;
+        }
+
+    /* split-content-view.vue */
+        .split-section {
+            margin-bottom: 2rem;
+        }
+
+        .split-section .split-label {
+            margin-bottom: 0.5rem;
+        }
+
+/* text-submit-field.vue */
+/* same as button-text.vue */
+
+/* card-history-match.vue */
+.card-match-history{
+    background-color: var(--c_slightlightcoding);
+    padding: 10px;
+}
+.card-match-history .row{
+    flex-direction: row;
+}
+.card-match-history .row .col.match-history-players{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    justify-content: space-around;
+    border-right: 2px solid var(--c_whitemain);
+}
+.card-match-history .row .col.match-history-players .player-div{
+    display: flex;
+    gap: 10px;
+}
+.card-match-history .row .col.match-history-players .player-div .playerName{
+    margin: 0px;
+    align-content: center;
+}
+.card-match-history .row .col.match-history-players button.img-btn{
+    border-radius: 100%;
+    height: fit-content;
+}
+.card-match-history .row .col.match-history-players img.profile-pic_icon{
+    width: 100%;
+    max-width: 60px;
+    max-height: 60px;
+}
+.card-match-history .center_icon{
+    width: 100%;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.card-match-history .row .row-match-detail{
+    justify-content: space-around;
+}
+.card-match-history .row .row-match-detail .col{
+    flex: 0 1 fit-content;
+}
+.card-match-history .row .row-match-detail .col .match-label{
+    margin: 0px;
+    color: var(--c_lightcoding);
+}
+    /* if win */
+    .card-match-history.card-win{
+        background-color: var(--c_yellowconstrastsat);
+    }
+    .card-match-history.card-win .row .col.match-history-players{
+        border-right: 2px solid var(--c_darkmain);
+    }
+    .card-match-history.card-win .row .row-match-detail .col .match-label {
+        color: var(--c_darkmain);
+    }
+    .card-match-history.card-win .center_icon{
+        filter: brightness(0);
+    }
+    .card-match-history.card-win .row .col.match-history-players .player-div .playerName{
+        color: var(--c_darkmain);
+    }
+
+/* card-email.vue */
+.card-email {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: var(--c_mediumcoding);
+    color: var(--c_whitemain);
+    border-radius: 4px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.card-email:hover {
+    background: var(--c_slightlightcoding);
+}
+
+.card-email .email-title {
+    font-weight: 600;
+}
+
+.card-email .email-date {
+    opacity: 0.7;
+}
+/* card-email-content */
+.email-content-panel {
+    padding: 20px;
+    background: var(--c_backgroundcoding);
+    color: var(--c_whitemain);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.email-content-panel .content-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.email-content-panel .title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.email-content-panel .body {
+    flex-grow: 1;
+    margin-top: 10px;
+    line-height: 1.4rem;
+}
+
+.email-content-panel .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.email-content-panel .delete-button {
+    background: var(--c_slightlightcoding);
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    color: var(--c_whitemain);
+}
+
+.email-content-panel .delete-button:hover {
+    background: var(--c_lightcoding);
+}
+
+/* card-event-timeline.vue */
+/* copy to card-thumb.vue */
+.card-event-thumb_link {
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.card-event-thumb_link .card-thumb {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: var(--c_mediumcoding);
+}
+
+.card-event-thumb_link:hover .card-thumb{
+    color: inherit;
+    background-color: var(--c_slightlightcoding);
+}
+
+/* loading-screen.vue */
+    .loading-con.show{
+        animation: loadingScreenComponentFadeIn 0.5s forwards ease-in;
+    }
+    .loading-con.hide{
+        animation: loadingScreenComponentFadeOut 0.5s forwards ease-in;
+    }
+    .loading-con {
+        background-color: var(--c_mediumcoding);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+    }
+    .loading-con .loading-con-window {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+    }
+    .loading-con .loading-con-window .loading-con-window-logo{
+        color: var(--c_whitemain);
+    }
+    .loading-con .loading-con-window .loading-con-window-gametip{
+        color: var(--c_lightcoding);
+    }
+    @keyframes loadingScreenComponentFadeIn{
+        0%{
+            opacity: 0;
+            z-index: 999;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+    @keyframes loadingScreenComponentFadeOut{
+        0%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+            z-index: -1;
+        }
+    }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mainpage.css">
+  <link rel="stylesheet" href="css/dashboard_admin.css">
+  <link rel="stylesheet" href="css/dashboard_faculty.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+  <script src="css/bootstrap/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .main-container { background: url(asset/general/wavy-bg-admin.png) no-repeat center; background-size: cover; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="flex-container" id="header_app"></div>
+  </header>
+  <main class="main-container user-dashboard-container">
+    <div id="faculty-dash_app" class="flex-container"></div>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script>
+    // helper: set token once if not present (seeded faculty token for local demo)
+    (function(){
+      const seeded = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiZmFjdWx0eV90ZXN0X3VzZXIiLCJlbWFpbCI6ImZhY3VsdHlfdGVzdF91c2VyQGV4YW1wbGUuY29tIiwicm9sZSI6IiIsImF2YXRhcl91cmwiOm51bGwsImlhdCI6MTc2NjEyNjQ2N30.ydbR0kqC4nUQ9Ltj-g3Sk5ke9OkDTE0c2GzQHnHa6-k';
+      // expose for the component so it can clear the demo token after validation
+      window.__DEMO_FACULTY_TOKEN__ = seeded;
+      if (!localStorage.getItem('jwt_token')) {
+        try { localStorage.setItem('jwt_token', seeded); } catch(e) {}
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+<!-- Corrected consolidated styles -->
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mainpage.css">
+  <link rel="stylesheet" href="css/dashboard_admin.css">
+
+  
+  <!-- bootstrap module -->
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+  <script src="css/bootstrap/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .main-container {
+      background: url(asset/general/wavy-bg-admin.png) no-repeat center;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="flex-container" id="header_app"></div>
+  </header>
+  
+  
+  <main class="main-container user-dashboard-container">
+    <div id="admin-dash_app" class="flex-container"></div>
+  </main>
+  <!-- <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a href="admin-dashboard.html" class="active">Dashboard</a></li>
+      <li><a href="admin-edit-account.html">Edit Account</a></li>
+      <li><a href="admin-events.html">Events</a></li>
+      <li><a href="admin-student.html">Student Management</a></li>
+      <li><a href="admin-management.html">Admin Management</a></li>
+      <li><a href="admin-reports.html">Reports</a></li>
+      <li><a href="admin-audit.html">Audit Trail</a></li>
+      <li><a href="admin-backup.html">System Backup</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>Dashboard</h1>
+    </header>
+
+    <section class="content">
+      <div class="card">
+        <h3>Total Students</h3>
+        <p>1,024</p>
+      </div>
+      <div class="card">
+        <h3>Active Events</h3>
+        <p>5</p>
+      </div>
+      <div class="card">
+        <h3>Reports Generated</h3>
+        <p>82</p>
+      </div>
+    </section>
+  </div> -->
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <!-- chart.js online module -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+</body>
+</html>

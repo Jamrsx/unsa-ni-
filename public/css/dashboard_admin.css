@@ -1,0 +1,694 @@
+#admin-dash_app .body-window{
+    /* vue window component */
+    padding: 0px;
+    background-color: var(--c_whitemain);
+}
+#admin-dash_app > section{
+    width: 100%;
+}
+#admin-dash_app .split-layout>section.content-area {
+    width: 100%;
+    color: var(--c_darkgreen);
+    overflow: inherit;
+}
+
+/* table for admin */
+.user-dashboard-container #admin-dash_app .table-responsive {
+    overflow: hidden;
+    max-height: 85vh;
+    /* temporaray fix, f*** bs5 tables i guess */
+    overflow-y: scroll;
+}
+
+.user-dashboard-container #admin-dash_app .table-responsive table {
+    color: var(--c_whitemain);
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+}
+
+.user-dashboard-container #admin-dash_app .table-responsive table thead {
+    background-color: var(--v_table-background);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.user-dashboard-container #admin-dash_app .table-responsive table tbody {
+    overflow-y: scroll;
+}
+
+.user-dashboard-container #admin-dash_app .table-responsive table tbody tr {
+    background-color: var(--c_backgroundcoding);
+    border: 0px none transparent;
+    vertical-align: middle;
+}
+
+.user-dashboard-container #admin-dash_app .table-responsive table tbody tr:nth-child(odd) {
+    background-color: var(--c_slightlightcoding);
+}
+
+.user-dashboard-container #admin-dash_app .table-responsive table tbody tr td:first-child {
+    border-top-left-radius: var(--v_table-radius);
+    border-bottom-left-radius: var(--v_table-radius);
+}
+
+.user-dashboard-container #admin-dash_app .table-responsive table tbody tr td:last-child {
+    border-top-right-radius: var(--v_table-radius);
+    border-bottom-right-radius: var(--v_table-radius);
+}
+
+
+
+/* account */
+#admin-dash_app .split-layout img.profile-pic_icon {
+    background-color: var(--c_whitemain);
+    max-width: 200px;
+}
+
+#admin-dash_app .split-layout .row-account {
+    display: flex;
+}
+
+#admin-dash_app .split-layout .row-account .col:nth-child(1) {
+    flex: 0 1 0%;
+    margin-right: 20px;
+}
+#admin-dash_app .split-layout .row-account .col:nth-child(2).row-account-detail{
+    /* your account > username, email and edit's container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#admin-dash_app .split-layout .row-account .col:nth-child(2).row-account-detail .col h1 {
+    margin: 0px;
+    /* the font siae and wieght is used by bootstrap, look for me */
+}
+#admin-dash_app .split-layout .row-account .col:nth-child(2).row-account-detail .col p{
+    color: var(--c_lightcoding);
+}
+
+/* dashboard */
+/* upper */
+    #admin-dash_app .split-layout #dashboard > .row > .row.col:nth-child(1){
+        padding: 10px;
+        align-items: stretch;
+    }
+    #admin-dash_app .split-layout #dashboard > .row > .row.col:nth-child(1) > .col:nth-child(1){
+        border-right: 2px solid var(--c_lightcoding);
+    }
+    #admin-dash_app .split-layout #dashboard > .row > .row.col:nth-child(1) > .col {
+        display: flex;
+        align-items: center;
+        flex: 1;
+    }
+    /* some review cards properties used by bs5 */
+    #admin-dash_app .split-layout #dashboard .grid-layout-container .row .col-5{
+        /* card-dashboard-review div */
+        background-color: var(--c_mediumcoding);
+        padding: 10px;
+        border-radius: 15px;
+    }
+    #admin-dash_app .split-layout #dashboard .grid-layout-container .row .col-5 #setting_btn{
+        background-color: transparent;
+    }
+    #admin-dash_app .split-layout #dashboard .grid-layout-container .row .col-5 #setting_btn>img.img-btn_logo {
+        max-width: 3vw;
+    }
+    #admin-dash_app .split-layout #dashboard .grid-layout-container .row .col-5 h4{
+        color: var(--c_lightcoding);
+    }
+    #admin-dash_app .split-layout #dashboard .grid-layout-container .row .col-5 h2 {
+        color: var(--c_whitemain);
+    }
+    #admin-dash_app .split-layout #dashboard .card-event-thumb_link{
+        height: 100%;
+        color: var(--c_whitemain);
+        display: flex;
+        justify-content: center;
+    }
+    #admin-dash_app .split-layout #dashboard .card-event-thumb_link .card-thumb{
+        height: 100%;
+    }
+    #admin-dash_app .split-layout #dashboard .card-event-thumb_link .card-thumb p{
+        margin: 0px;
+    }
+    #admin-dash_app .split-layout #dashboard .card-event-thumb_link .card-thumb .card-thumb_img{
+        height: 100%;
+    }
+    #admin-dash_app .split-layout #dashboard .card-event-thumb_link .card-thumb .card-thumb_img img{
+        height: auto;
+        max-height: inherit;
+    }
+
+/* edit_account */
+    /* form */
+    #admin-dash_app .split-layout #edit_account form.row-edit-account{
+        flex-direction: column;
+    }
+    #admin-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(1){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 10px 0px 10px 0px;
+    }
+    #admin-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(1) .form-control{
+        background-color: var(--c_slightlightcoding);
+        border: none;
+        color: var(--c_lightcoding);
+    }
+    #admin-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(2){
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        gap: 10px;
+    }
+    #admin-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(2) > *{
+        /* buttons cancel and save */
+        max-width: 200px;
+        padding: 10px;
+        border-radius: 20px;
+    }
+    #admin-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(2) > .edit_account_cancel_button{
+        /* buttons cancel and save */
+        background-color: var(--c_slightlightcoding);
+        color: var(--c_whitemain);
+    }
+
+/* user and admin */
+    .user-dashboard-container #admin-dash_app .split-layout #user,
+    .user-dashboard-container #admin-dash_app .split-layout #admin {
+        /* variable */
+        --v_table-radius: 60px;
+        --v_table-background: var(--c_darkgreen);
+    }
+    .user-dashboard-container #admin-dash_app .split-layout #user, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin {
+        background-color: var(--v_table-background);
+        color: var(--c_whitemain);
+        padding: 10px;
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .body-window,
+    .user-dashboard-container #admin-dash_app .split-layout #admin .body-window {
+        background-color: var(--v_table-background);
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table .user-table-data-user .user-table-data-user-profile-pic, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table .admin-table-data-user .admin-table-data-user-profile-pic {
+        padding: 0px;
+        height: fit-content;
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table .user-table-data-user .user-table-data-user-profile-pic .profile-pic_icon, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table .admin-table-data-user .admin-table-data-user-profile-pic .profile-pic_icon {
+        max-width: 25px;
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .vertical-carousel-container .vertical-carousel-scroll, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .vertical-carousel-container .vertical-carousel-scroll {
+        overflow: hidden;
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table {
+        overflow: hidden;
+        max-height: 85vh;
+        /* temporaray fix, f*** bs5 tables i guess */
+        overflow-y: scroll;
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table table, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table table {
+        color: var(--c_whitemain);
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 20px;
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table table thead, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table table thead {
+        background-color: var(--v_table-background);
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table table tbody, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table table tbody {
+        overflow-y: scroll;
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table table tbody tr, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table table tbody tr {
+        background-color: var(--c_backgroundcoding);
+        border: 0px none transparent;
+        vertical-align: middle;
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table table tbody tr:nth-child(odd), 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table table tbody tr:nth-child(odd) {
+        background-color: var(--c_slightlightcoding);
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table table tbody tr td.user-table-data-user div, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table table tbody tr td.admin-table-data-user div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table table tbody tr td.user-table-data-user div p, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table table tbody tr td.admin-table-data-user div p {
+        margin: 0px;
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table table tbody tr td:first-child, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table table tbody tr td:first-child {
+        border-top-left-radius: var(--v_table-radius);
+        border-bottom-left-radius: var(--v_table-radius);
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table table tbody tr td:last-child, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table table tbody tr td:last-child {
+        border-top-right-radius: var(--v_table-radius);
+        border-bottom-right-radius: var(--v_table-radius);
+    }
+    
+    .user-dashboard-container #admin-dash_app .split-layout #user .user-table table tbody tr td.user-table-data-action .col .user_table_ban_btn, 
+    .user-dashboard-container #admin-dash_app .split-layout #admin .admin-table table tbody tr td.admin-table-data-action .col .admin_table_remove_btn {
+        background-color: var(--c_redwarning);
+        color: var(--c_whitemain);
+    }
+
+/* question_set */
+    /* Split window top menu (inside another split window) */
+        /* SPLIT WINDOW */
+        /* split-main-window.vue */
+        .user-dashboard-container #admin-dash_app .split-layout section:nth-child(2) > .body-window {
+            background-color: var(--c_backgroundcoding);
+            padding: 15px;
+        }
+
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+    
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window aside.row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window aside {
+            background-color: transparent;
+            font-weight: bold;
+            flex: 0 1 0%;
+            width: auto;
+            font-weight: lighter;
+        }
+
+        .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window aside nav{
+            min-height: 0;
+        }
+    
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window aside nav ul {
+            margin-top: 20px;
+            padding: 0px;
+            display: flex;
+            margin: 0px;
+        }
+
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window aside nav ul li{
+            color: var(--c_lightcoding);
+            font-weight: bolder;
+        }
+
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window aside nav ul li:not(:last-child){
+            border-right: 2px solid var(--c_darkgreen);
+        }
+    
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window aside .split-aside-logout {
+            background-color: transparent;
+            color: var(--c_whitemain);
+            flex: 0 1 0%;
+            padding: 10px;
+    
+            /* overrides button text justify content which it has already display flex */
+            justify-content: end;
+        }
+    
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window .content-area {
+            background-color: var(--v_table-background);
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+    
+        /* split-navigatioan-view.vue */
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window .nav-item {
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+            padding: 10px;
+            transition: background 0.2s;
+        }
+    
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window .nav-item:hover {
+            background-color: transparent;
+            color: var(--c_mediumcoding);
+        }
+
+        .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .nav-item.active{
+            color: var(--c_backgroundcoding);
+        }
+    
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window .nav-item:active {
+            background: #ddd;
+        }
+    
+        /* split-content-view.vue */
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window .split-section {
+            margin-bottom: 2rem;
+        }
+    
+        .user-dashboard-container #admin-dash_app > section > .body-window > .split-layout .top-split-main-window .split-section .split-label {
+            color: var(--c_whitemain);
+            margin-bottom: 0.5rem;
+        }
+            /* for pending side - question_set */
+                .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_question .table-responsive table.table .img-btn-bg {
+                    background-color: var(--c_whitemain);
+                    padding: 0px;
+                    border-radius: 100%;
+                    width: 100%;
+                    max-width: 40px;
+                    aspect-ratio: 1/1;
+                }
+                .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_question .table-responsive table.table .img-btn-bg button.img-btn{
+                    width: 100%;
+                    max-width: 40px;
+                    aspect-ratio: 1/1;
+                }
+                .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_question .table-responsive table.table .img-btn-bg button.img-btn.pending_table_check_btn{
+                    background: var(--c_greenmain);
+                    mask: url(../asset/general/checked.png) no-repeat center;
+                    mask-size: cover;
+                }
+                .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_question .table-responsive table.table .img-btn-bg button.img-btn.pending_table_deny_btn{
+                    background: var(--c_redwarning);
+                    mask: url(../asset/general/remove.png) no-repeat center;
+                    mask-size: cover;
+                }
+
+
+    /* solo - clcickable tr */
+    .user-dashboard-container #admin-dash_app .solo-table .solo-table-row {
+        cursor: pointer;
+    }
+
+    /* solo table design */
+    .user-dashboard-container #admin-dash_app {
+        --v_table-radius: 60px;
+        --v_table-background: var(--c_darkgreen);
+    }
+
+    .user-dashboard-container #admin-dash_app .split-layout .top-split-main-window .body-window{
+        background-color: var(--v_table-background);
+        padding: 10px;
+    }
+
+    /* question set left table (with admin | user | pending) */
+    .user-dashboard-container #admin-dash_app .split-layout .top-split-main-window section:nth-child(1) .body-window{
+        background-color: transparent;
+    }
+
+    /* .user-dashboard-container #admin-dash_app .vertical-carousel-container .vertical-carousel-scroll {
+        overflow: hidden;
+    } */
+
+/* event */
+.user-dashboard-container #admin-dash_app>section>.body-window>.split-layout #event .top-split-main-window button.event_table_create_btn{
+    height: fit-content;
+    min-height: 0;
+}
+.user-dashboard-container #admin-dash_app>section>.body-window>.split-layout #event>.row>section:nth-child(1) {
+    width: 100%;
+}
+    /* event_set */
+        /* for pending side - event_set */
+            .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_event .table-responsive table.table .img-btn-bg {
+                background-color: var(--c_whitemain);
+                padding: 0px;
+                border-radius: 100%;
+                width: 100%;
+                max-width: 40px;
+                aspect-ratio: 1/1;
+            }
+            .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_event .table-responsive table.table .img-btn-bg button.img-btn{
+                width: 100%;
+                max-width: 40px;
+                aspect-ratio: 1/1;
+            }
+            .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_event .table-responsive table.table .img-btn-bg button.img-btn.pending_table_check_btn{
+                background: var(--c_greenmain);
+                mask: url(../asset/general/checked.png) no-repeat center;
+                mask-size: cover;
+            }
+            .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_event .table-responsive table.table .img-btn-bg button.img-btn.pending_table_deny_btn{
+                background: var(--c_redwarning);
+                mask: url(../asset/general/remove.png) no-repeat center;
+                mask-size: cover;
+            }
+/* blog */
+.user-dashboard-container #admin-dash_app>section>.body-window>.split-layout #blog .top-split-main-window button.blog_table_create_btn {
+    height: fit-content;
+    min-height: 0;
+}
+.user-dashboard-container #admin-dash_app>section>.body-window>.split-layout #blog>.row>section:nth-child(1) {
+    width: 100%;
+}
+    /* blog_set */
+        /* for pending side - blog_set */
+            .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_blog .table-responsive table.table .img-btn-bg {
+                background-color: var(--c_whitemain);
+                padding: 0px;
+                border-radius: 100%;
+                width: 100%;
+                max-width: 40px;
+                aspect-ratio: 1/1;
+            }
+            .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_blog .table-responsive table.table .img-btn-bg button.img-btn{
+                width: 100%;
+                max-width: 40px;
+                aspect-ratio: 1/1;
+            }
+            .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_blog .table-responsive table.table .img-btn-bg button.img-btn.pending_table_check_btn{
+                background: var(--c_greenmain);
+                mask: url(../asset/general/checked.png) no-repeat center;
+                mask-size: cover;
+            }
+            .user-dashboard-container #admin-dash_app>section>.body-window>.split-layout .top-split-main-window .split-section#pending_blog .table-responsive table.table .img-btn-bg button.img-btn.pending_table_deny_btn{
+                background: var(--c_redwarning);
+                mask: url(../asset/general/remove.png) no-repeat center;
+                mask-size: cover;
+            }
+
+/* approvals */
+/* ========================================
+   APPROVAL SECTION - LAYOUT & STRUCTURE
+   ======================================== */
+.user-dashboard-container #admin-dash_app .split-layout #approval .body-window {
+    background-color: var(--v_table-background);
+    padding: 10px;
+}
+
+/* Approval sections container */
+.user-dashboard-container #admin-dash_app .split-layout #approval .flex-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .flex-row section.approval-section {
+    width: 100%;
+}
+
+/* ========================================
+   APPROVAL TABLES - SPLIT MAIN WINDOW
+   ======================================== */
+/* Pending and Approved navigation styling */
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window.approval-pending-nav,
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window.approval-approved-nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window aside.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window aside {
+    background-color: transparent;
+    font-weight: bold;
+    flex: 0 1 0%;
+    width: auto;
+    font-weight: lighter;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window aside nav {
+    min-height: 0;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window aside nav ul {
+    margin-top: 20px;
+    padding: 0px;
+    display: flex;
+    margin: 0px;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window aside nav ul li {
+    color: var(--c_lightcoding);
+    font-weight: bolder;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window aside nav ul li:not(:last-child) {
+    border-right: 2px solid var(--c_darkgreen);
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .content-area {
+    background-color: var(--v_table-background);
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+/* Navigation items */
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .nav-item {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    transition: background 0.2s;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .nav-item:hover {
+    background-color: transparent;
+    color: var(--c_mediumcoding);
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .nav-item.active {
+    color: var(--c_backgroundcoding);
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .nav-item:active {
+    background: #ddd;
+}
+
+/* ========================================
+   APPROVAL TABLES - TABLE CONTENT
+   ======================================== */
+/* Table sections */
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .split-section {
+    margin-bottom: 2rem;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .split-section .split-label {
+    color: var(--c_whitemain);
+    margin-bottom: 0.5rem;
+}
+
+/* ========================================
+   APPROVAL TABLES - ACTION BUTTONS
+   ======================================== */
+/* Pending approval action buttons (approve/deny) */
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .split-section .table-responsive table.table .img-btn-bg {
+    background-color: var(--c_whitemain);
+    padding: 0px;
+    border-radius: 100%;
+    width: 100%;
+    max-width: 40px;
+    aspect-ratio: 1/1;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .split-section .table-responsive table.table .img-btn-bg button.img-btn {
+    width: 100%;
+    max-width: 40px;
+    aspect-ratio: 1/1;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .split-section .table-responsive table.table .img-btn-bg button.img-btn.pending_table_check_btn {
+    background: var(--c_greenmain);
+    mask: url(../asset/general/checked.png) no-repeat center;
+    mask-size: cover;
+}
+
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .split-section .table-responsive table.table .img-btn-bg button.img-btn.pending_table_deny_btn {
+    background: var(--c_redwarning);
+    mask: url(../asset/general/remove.png) no-repeat center;
+    mask-size: cover;
+}
+
+/* View button styling */
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .pending_table_view_btn,
+.user-dashboard-container #admin-dash_app .split-layout #approval .top-split-main-window .approved_table_view_btn {
+    color: var(--c_whitemain);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+/* Remove background from modal button parent divs */
+.user-dashboard-container #admin-dash_app .split-layout #approval .table-responsive table.table tbody tr td .row .col {
+    background-color: transparent;
+}
+
+/* ========================================
+   LEGACY APPROVAL TABLE STYLES (for old approval_queue_table)
+   ======================================== */
+.user-dashboard-container #admin-dash_app .split-layout #approval .body-window .approval-table table.table tr.approval-table-row .row_approval_detail {
+    flex-direction: column;
+    padding-left: 20px;
+}
+.user-dashboard-container #admin-dash_app .split-layout #approval .body-window .approval-table table.table tr.approval-table-row .row_approval_detail .col:nth-child(2).row {
+    flex-direction: column;
+    padding-left: 10px;
+}
+.user-dashboard-container #admin-dash_app .split-layout #approval .body-window .approval-table table.table tr.approval-table-row .row_approval_detail .col:nth-child(2).row p{
+    margin: 0px;
+}
+.user-dashboard-container #admin-dash_app .split-layout #approval .body-window .approval-table table.table tr.approval-table-row .row_approval_detail .col:nth-child(2).row .col:nth-child(1) {
+    /* title */
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.user-dashboard-container #admin-dash_app .split-layout #approval .body-window .approval-table table.table tr.approval-table-row .row_approval_detail .col:nth-child(2).row .col:nth-child(2) {
+    /* subtitle */
+    font-weight: lighter;
+    font-size: 0.8rem;
+    color: var(--c_lightcoding);
+}
+.user-dashboard-container #admin-dash_app .split-layout #approval .body-window .approval-table table.table tr.approval-table-row .row_approval_action {
+    border-left: 2px solid var(--c_whitemain);
+    padding: 0px 10px 0px 10px;
+}
+.user-dashboard-container #admin-dash_app .split-layout #approval .flex-row section:nth-child(1){
+    width: 100%;
+}
+
+/* email */
+    #admin-dash_app .split-layout #mail .mail-container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 10px;
+    }
+    #admin-dash_app .split-layout #mail .vertical-carousel-container .vertical-carousel-scroll{
+        max-height: 60vh;
+    }

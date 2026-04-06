@@ -1,0 +1,187 @@
+===========================================
+COMPLETE PERMISSION SETUP - READY TO USE
+===========================================
+
+✅ STEP 1: SQL Migration (ALREADY UPDATED)
+------------------------------------------
+The file sql/001_faculty_dashboard_migration.sql has been updated with:
+- 6 new permissions (IDs 31-36): approve_problem, deny_problem, approve_event, deny_event, approve_blog, deny_blog
+- Auto-assigned to both faculty and admin roles
+
+Just run this file in phpMyAdmin or MySQL Workbench.
+
+
+✅ STEP 2: Apply Backend Code Changes
+-------------------------------------
+
+FILE: server.js
+---------------
+Location: After line 3301 (after verifyAdmin function), add this new function:
+
+```javascript
+// Helper: check if user has a specific permission (from role or user-specific override)
+async function hasPermission(userId, permissionName) {
+    if (!userId || !permissionName) return false;
+    
+    const [rows] = await db.query(
+        `
+        SELECT 
+            COALESCE(up.is_granted, rp.permission_id) as has_perm
+        FROM permissions p
+        LEFT JOIN role_permissions rp ON p.permission_id = rp.permission_id
+        LEFT JOIN user_roles ur ON rp.role_id = ur.role_id AND ur.user_id = ?
+        LEFT JOIN user_permissions up ON p.permission_id = up.permission_id AND up.user_id = ?
+        WHERE p.permission_name = ?
+        LIMIT 1
+        `,
+        [userId, userId, permissionName]
+    );
+    
+    return rows.length > 0 && rows[0].has_perm !== null && rows[0].has_perm !== 0;
+}
+```
+
+Then update line ~1058-1059:
+CHANGE:
+    registerUserSocketHandlers(socket, db, bcrypt, jwt, { verifySession, verifyAdmin, getUserPrimaryRole, deriveCategory });
+    registerFacultySocketHandlers(socket, db, bcrypt, jwt, { verifySession, verifyAdmin, getUserPrimaryRole, deriveCategory }, io);
+
+TO:
+    registerUserSocketHandlers(socket, db, bcrypt, jwt, { verifySession, verifyAdmin, hasPermission, getUserPrimaryRole, deriveCategory });
+    registerFacultySocketHandlers(socket, db, bcrypt, jwt, { verifySession, verifyAdmin, hasPermission, getUserPrimaryRole, deriveCategory }, io);
+
+And update line ~201:
+CHANGE:
+    registerFacultyHttp({ app, db, bcrypt, jwt, helpers: { verifySession, verifyAdmin, getUserPrimaryRole, deriveCategory }, io });
+
+TO:
+    registerFacultyHttp({ app, db, bcrypt, jwt, helpers: { verifySession, verifyAdmin, hasPermission, getUserPrimaryRole, deriveCategory }, io });
+
+
+FILE: src/js/conn/dashboard_admin_and_user_socket.js
+-----------------------------------------------------
+Update line ~2 (destructuring):
+CHANGE:
+    const { verifySession, verifyAdmin, getUserPrimaryRole, deriveCategory } = helpers;
+
+TO:
+    const { verifySession, verifyAdmin, hasPermission, getUserPrimaryRole, deriveCategory } = helpers;
+
+Then find and replace these 6 permission checks:
+
+1. In request_approve_blog (line ~1730):
+   REPLACE:
+       const isAdmin = await verifyAdmin(session);
+       if (!isAdmin) {
+           socket.emit('response_approve_blog', { success: false, message: 'Unauthorized: Admin access required' });
+           return;
+       }
+   WITH:
+       const canApprove = await hasPermission(session.userId, 'approve_blog');
+       if (!canApprove) {
+           socket.emit('response_approve_blog', { success: false, message: 'Unauthorized: You do not have permission to approve blogs' });
+           return;
+       }
+
+2. In request_approve_event (line ~1820):
+   REPLACE:
+       const isAdmin = await verifyAdmin(session);
+       if (!isAdmin) {
+           socket.emit('response_approve_event', { success: false, message: 'Unauthorized: Admin access required' });
+           return;
+       }
+   WITH:
+       const canApprove = await hasPermission(session.userId, 'approve_event');
+       if (!canApprove) {
+           socket.emit('response_approve_event', { success: false, message: 'Unauthorized: You do not have permission to approve events' });
+           return;
+       }
+
+3. In request_deny_event (line ~1903):
+   REPLACE:
+       const isAdmin = await verifyAdmin(session);
+       if (!isAdmin) {
+           socket.emit('response_deny_event', { success: false, message: 'Unauthorized: Admin access required' });
+           return;
+       }
+   WITH:
+       const canDeny = await hasPermission(session.userId, 'deny_event');
+       if (!canDeny) {
+           socket.emit('response_deny_event', { success: false, message: 'Unauthorized: You do not have permission to deny events' });
+           return;
+       }
+
+4. In request_deny_blog (line ~1962):
+   REPLACE:
+       const isAdmin = await verifyAdmin(session);
+       if (!isAdmin) {
+           socket.emit('response_deny_blog', { success: false, message: 'Unauthorized: Admin access required' });
+           return;
+       }
+   WITH:
+       const canDeny = await hasPermission(session.userId, 'deny_blog');
+       if (!canDeny) {
+           socket.emit('response_deny_blog', { success: false, message: 'Unauthorized: You do not have permission to deny blogs' });
+           return;
+       }
+
+5. In request_approve_question (line ~2530):
+   REPLACE:
+       const isAdmin = await verifyAdmin(session);
+       if (!isAdmin) {
+           socket.emit('response_approve_question', { success: false, message: 'Unauthorized: Admin access required' });
+           return;
+       }
+   WITH:
+       const canApprove = await hasPermission(session.userId, 'approve_problem');
+       if (!canApprove) {
+           socket.emit('response_approve_question', { success: false, message: 'Unauthorized: You do not have permission to approve problems' });
+           return;
+       }
+
+6. In request_deny_question (line ~2614):
+   REPLACE:
+       const isAdmin = await verifyAdmin(session);
+       if (!isAdmin) {
+           socket.emit('response_deny_question', { success: false, message: 'Unauthorized: Admin access required' });
+           return;
+       }
+   WITH:
+       const canDeny = await hasPermission(session.userId, 'deny_problem');
+       if (!canDeny) {
+           socket.emit('response_deny_question', { success: false, message: 'Unauthorized: You do not have permission to deny problems' });
+           return;
+       }
+
+
+✅ STEP 3: Restart Node Server
+------------------------------
+Press Ctrl+C in your node terminal and run:
+    node server.js
+
+
+✅ STEP 4: Grant Permissions (via Admin Dashboard)
+--------------------------------------------------
+1. Open browser and login as Admin
+2. Navigate to: Admin Dashboard > Admin
+3. Click "Edit" on any faculty user
+4. You'll see new permission toggles in these sections:
+   - Question Set section: "Approve pending problems/questions", "Deny pending problems/questions"
+   - Event section: "Approve pending events", "Deny pending events"
+   - Blog section: "Approve pending blog posts", "Deny pending blog posts"
+5. Enable the permissions you want
+6. Click "Save"
+
+
+✅ STEP 5: Test Faculty Approval
+--------------------------------
+1. Login as the faculty user you granted permissions to
+2. Navigate to: Faculty Dashboard > Problems > Pending Question
+3. You should see:
+   - Green checkmark button (approve)
+   - Red X button (deny)
+4. Click approve - should work and show success message!
+5. Test same for Events > Pending Event and Blogs > Pending Blog
+
+
+🎉 DONE! Faculty can now approve/deny pending content!

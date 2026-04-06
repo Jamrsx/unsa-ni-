@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Duel | CodeDuel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mainpage.css">
+  <link rel="stylesheet" href="css/soloduel.css">
+
+  <!-- bootstrap module -->
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+  <script src="css/bootstrap/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/popper/popper.min.js"></script>
+
+
+
+  <style>
+    .main-container{
+      background: url(asset/general/wavy-bg.png) no-repeat center;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- page header: keep markup minimal to avoid height issues -->
+  <header>
+    <div id="header_app"></div>
+  </header>
+  <!-- Auth check -->
+  <script type="module">
+    import { auth } from "/src/js/auth.js";
+    auth();
+  </script>
+
+
+  <!-- Main Container -->
+  <main class="main-container duel-container">
+
+    <!-- DUEL MENU (Default) -->
+    <div class="flex-container" id="duel_app">
+      <!-- section -->
+        <!-- window -->
+          <!-- row -->
+          <!-- row -->
+      <!-- section -->
+        <!-- window -->
+        <!-- window -->
+    </div>
+
+         <!-- QUEUEING OVERLAY -->
+    <!-- <section id="duel-queue" class="duel-queue hidden">
+      <div class="queue-box">
+        <h2>Waiting for duel</h2>
+        <div class="queue-status">
+          <div class="user-avatar"></div>
+          <p class="queue-username">Username</p>
+        </div>
+        <div class="searching">
+          <p>Searching</p>
+          <div class="dots">• • •</div>
+        </div>
+        <button id="cancelQueueBtn">Cancel Match</button>
+      </div>
+    </section> -->
+
+         <!-- MATCH FOUND OVERLAY -->
+    <!-- <section id="duel-overlay" class="duel-overlay hidden">
+      <div class="match-box">
+        <h2>Match Found!</h2>
+        <div class="match-players">
+          <div class="player player-left">
+            <div class="avatar"></div>
+            <p class="username">Player1</p>
+          </div>
+          <div class="vs-icon">*hand shake*</div>
+          <div class="player player-right">
+            <div class="avatar"></div>
+            <p class="username">Player2</p>
+          </div>
+        </div>
+        <button id="readyBtn" class="btn-ready">Ready</button>
+        <button id="cancelMatchBtn" class="btn-cancel">Cancel Match</button>
+      </div>
+    </section> -->
+
+  </main>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+  <!-- <script src="http://localhost:3000/socket.io/socket.io.js"></script> -->
+  <!-- duel.js removed - functionality now handled by Duel.vue -->
+</body>
+</html>

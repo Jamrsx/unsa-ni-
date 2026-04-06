@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Socket Test — Approve/Reject</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:20px}
+    label,input,select,button{margin:6px 0;display:block}
+    #log{white-space:pre-wrap;background:#f6f8fa;padding:10px;border-radius:6px;height:240px;overflow:auto}
+  </style>
+</head>
+<body>
+  <h3>Quick Socket Test — Faculty Approve/Reject</h3>
+  <p>Open while signed in to the app (same host) so cookies/session apply.</p>
+
+  <label>Change ID (from DB or UI)</label>
+  <input id="changeId" placeholder="e.g. 123" />
+
+  <label>Action</label>
+  <select id="action">
+    <option value="pending_list">Request pending list</option>
+    <option value="approve">Faculty approve change</option>
+    <option value="reject">Faculty reject change</option>
+  </select>
+
+  <button id="run">Run</button>
+  <button id="clear">Clear Log</button>
+
+  <h4>Log</h4>
+  <div id="log">Logs will appear here</div>
+
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  <script>
+    const logEl = document.getElementById('log');
+    function log(...args){
+      logEl.textContent += Array.from(args).map(x=>typeof x==='object'?JSON.stringify(x,null,2):String(x)).join(' ') + '\n';
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    // Configure which server to connect to.
+    // Examples:
+    // - Open the file on the same host as your app: http://localhost:3000/for_context/wire_client_test.html
+    // - Or specify the app server explicitly: /for_context/wire_client_test.html?server=http://localhost:3000
+    const SERVER_URL = (new URLSearchParams(location.search)).get('server') || '';
+
+    const socket = SERVER_URL ? io(SERVER_URL, { path: '/socket.io' }) : io();
+
+    socket.on('connect', ()=>{
+      log('connected', socket.id, 'server:', SERVER_URL || location.origin);
+    });
+    socket.on('disconnect', ()=>log('disconnected'));
+    socket.on('error', e=>log('socket error:', e));
+    socket.on('connect_error', (err) => log('connect_error:', err && err.message));
+
+    // Generic response logger
+    socket.onAny((ev, payload)=>{
+      log('[recv]', ev, payload);
+    });
+
+    document.getElementById('run').addEventListener('click', ()=>{
+      const action = document.getElementById('action').value;
+      const changeId = document.getElementById('changeId').value.trim();
+
+      if(action === 'pending_list'){
+        log('emit: request_faculty_pending_changes');
+        socket.emit('request_faculty_pending_changes', { }, (resp)=>{
+          log('ack:', resp);
+        });
+        return;
+      }
+
+      if(!changeId){ log('Please provide a change ID'); return; }
+
+      if(action === 'approve'){
+        const payload = { change_id: parseInt(changeId,10) };
+        log('emit: request_faculty_approve_change', payload);
+        socket.emit('request_faculty_approve_change', payload, (ack)=>{
+          log('ack:', ack);
+        });
+        return;
+      }
+
+      if(action === 'reject'){
+        const payload = { change_id: parseInt(changeId,10), reason: 'Test rejection' };
+        log('emit: request_faculty_reject_change', payload);
+        socket.emit('request_faculty_reject_change', payload, (ack)=>{
+          log('ack:', ack);
+        });
+        return;
+      }
+
+    });
+
+    document.getElementById('clear').addEventListener('click', ()=>logEl.textContent='');
+
+    // Helpful tip: if you need to emulate a different user, open DevTools -> Application -> Cookies, edit session cookie, then reload this page.
+  </script>
+</body>
+</html>

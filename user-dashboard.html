@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard | CodeDuel</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mainpage.css">
+  <link rel="stylesheet" href="css/dashboard_user.css">
+
+  <!-- bootstrap module -->
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+  <script src="css/bootstrap/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .main-container {
+      background: url(asset/general/wavy-bg.png) no-repeat center;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="flex-container" id="header_app"></div>
+  </header>
+
+
+  <main class="main-container user-dashboard">
+    <div id="user-dash_app" class="flex-container"></div>
+  </main>
+  <!-- <main>
+    <aside>
+      <ul>
+        <li><a href="user-account.html">My account</a></li>
+        <li><a href="user-edit-account.html">Edit account</a></li>
+        <li><a href="user-duel-history.html">Duel History</a></li>
+        <li><a href="user-mail.html">Mail</a></li>
+      </ul>
+      <button>Log out</button>
+    </aside>
+
+    <section class="profile">
+      <div class="account-info">
+        <h2>Your Account</h2>
+        <div class="avatar">
+          <img src="https://via.placeholder.com/100" alt="User Avatar">
+        </div>
+        <h3>Username</h3>
+        <p>example@email.com</p>
+        <button>Edit</button>
+      </div>
+
+      <div class="statistics">
+        <h2>Your Statistics</h2>
+        <div class="stats-container">
+          <div class="level">
+            <h3>Level</h3>
+            <p>30</p>
+          </div>
+          <div class="duel-points">
+            <h3>Duel Points</h3>
+            <p>389,112</p>
+            <p>Rank no. 98</p>
+          </div>
+          <div class="ranking">
+            <h3>Ranking</h3>
+            <p>788th</p>
+          </div>
+          <div class="streaks">
+            <h3>Win Streaks</h3>
+            <p>0</p>
+          </div>
+          <div class="winrate">
+            <h3>Win Rate</h3>
+            <p>0%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main> -->
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="../src/js/user-dashboard.js"></script>
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+.main-container {
+    background-color: var(--c_backgroundcoding);
+    background-size: cover;
+}
+.main-container .flex-container{
+    height: 100vh;
+}
+.body-window{
+    background-color: var(--c_mediumcoding);
+    height: 100%;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.flex-container section:nth-child(1){
+    width: 7%;
+}
+.flex-container section:nth-child(2) {
+    width: 40%;
+    flex: 1 1 auto;
+}
+.flex-container section:nth-child(3) {
+    width: 53%;
+    flex: 1 1 auto;
+}
+.flex-container section:nth-child(2) .body-window:nth-child(1){
+    flex: 1 1 40%;
+    height: 100px;
+    overflow-y: auto;
+}
+.flex-container section:nth-child(2) .body-window:nth-child(2) {
+    flex: 1 1 60%;
+    height: 100px;
+}
+
+section .container {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+section .container .row {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section .container .col {
+    width: fit-content;
+}
+
+.body-window{
+    padding: 5px;
+}
+
+/* left panel */
+.onboarding-container .player-match-label{
+    background-color: var(--c_whitemain);
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.onboarding-container .left-panel .body-window .container .row .col:nth-child(2){
+    flex: 0 0 0%;
+}
+#setting_btn{
+    background-color: transparent;
+    color: var(--c_whitemain);
+}
+
+/* middle panel */
+.onboarding-container .middle-panel .body-window:nth-child(1) div h3{
+    background-color: var(--c_whitemain);
+    color: var(--c_darkgreen);
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.onboarding-container .onboarding-problem-sample-io{
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* overwrite mainpage.css */
+}
+.onboarding-container .onboarding-problem-sample-io .io-col {
+    width: 100%;
+}
+
+
+.onboarding-container .testcase-carousel{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.onboarding-container .testcase-carousel .onboarding-testcase-header #test-testcase-btn{
+    width: 150px;
+    height: 100%;
+}
+
+/* right panel */
+.onboarding-container .right-panel .body-window{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    height: 100px;
+}
+.onboarding-container .right-panel .body-window .onboarding-editor-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1 1 5%;
+    height: 100px;
+}
+.onboarding-container .right-panel .body-window .onboarding-editor-header #run-code-btn{
+    width: 150px;
+    height: 100%;
+}
+
+.onboarding-container .right-panel .body-window .onboarding-editor-footer {
+    flex: 1 1 95%;
+    height: 100px;
+}
+.onboarding-container .onboarding-editor-footer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Browser Smoke Test — DuelCode</title>
+  <style>body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;margin:16px}input{padding:6px}button{margin-left:8px}pre{background:#111;color:#eee;padding:12px;height:320px;overflow:auto}</style>
+</head>
+<body>
+  <h2>Browser Smoke Test</h2>
+  <p>Paste an active session token (from `active_sessions`) then click <b>Connect</b>, then <b>Run Smoke Actions</b>.</p>
+  <div>
+    <input id="token" placeholder="Paste token here" style="width:70%" />
+    <button id="connect">Connect</button>
+    <button id="run" disabled>Run Smoke Actions</button>
+    <button id="disconnect" disabled>Disconnect</button>
+  </div>
+  <pre id="log"></pre>
+
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script>
+    const logEl = document.getElementById('log');
+    function log(s){ logEl.textContent += s + '\n'; logEl.scrollTop = logEl.scrollHeight; }
+
+    let socket = null;
+
+    document.getElementById('connect').addEventListener('click', ()=>{
+      const token = document.getElementById('token').value.trim();
+      if(!token) return alert('Paste token from active_sessions');
+      log('Connecting with token (truncated): ' + token.slice(0,40) + '...');
+      socket = io('http://127.0.0.1:3000', { auth: { token }, transports: ['websocket','polling'] });
+
+      socket.on('connect', ()=>{ log('connected: ' + socket.id); document.getElementById('run').disabled = false; document.getElementById('disconnect').disabled = false; });
+      socket.on('disconnect', (r)=>{ log('disconnected: ' + r); document.getElementById('run').disabled = true; });
+      socket.on('connect_error', (err)=> log('connect_error: ' + (err && err.message || JSON.stringify(err))));
+
+      socket.on('response_create_faculty_event', (r)=> log('response_create_faculty_event: ' + JSON.stringify(r)));
+      socket.on('response_create_faculty_blog', (r)=> log('response_create_faculty_blog: ' + JSON.stringify(r)));
+      socket.on('response_change_user_account_profile', (r)=> log('response_change_user_account_profile: ' + JSON.stringify(r)));
+    });
+
+    document.getElementById('disconnect').addEventListener('click', ()=>{
+      if(socket) socket.disconnect(); socket = null; log('manual disconnect'); document.getElementById('disconnect').disabled = true; document.getElementById('run').disabled = true;
+    });
+
+    document.getElementById('run').addEventListener('click', async ()=>{
+      if(!socket || !socket.connected) return log('not connected');
+      const token = document.getElementById('token').value.trim();
+      log('Running smoke actions...');
+
+      await new Promise(res => {
+        const starts = new Date(Date.now() + 60*60*1000).toISOString();
+        const ends = new Date(Date.now() + 2*60*60*1000).toISOString();
+        socket.emit('request_create_faculty_event', {
+          token_session: token,
+          event_name: 'Browser Smoke Event',
+          description: 'Smoke test event created by browser script',
+          starts_at: starts, ends_at: ends,
+          thumbnail_data: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=',
+          thumbnail_file_name: 'smoke.png',
+          reward_points: 10,
+          reward_level: 1
+        });
+        socket.once('response_create_faculty_event', (resp)=>{ log('event response: ' + JSON.stringify(resp)); res(); });
+      });
+
+      await new Promise(res => {
+        socket.emit('request_create_faculty_blog', {
+          token_session: token,
+          blog_title: 'Smoke Test Blog',
+          blog_content: '<p>Browser smoke test blog</p>',
+          thumbnail_data: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=',
+          thumbnail_file_name: 'smoke_blog.png',
+          content_type: 'article'
+        });
+        socket.once('response_create_faculty_blog', (resp)=>{ log('blog response: ' + JSON.stringify(resp)); res(); });
+      });
+
+      await new Promise(res => {
+        socket.emit('request_change_user_account_profile', {
+          token_session: token,
+          username: 'browser_smoke_user',
+          email: 'faculty_test_user@example.com'
+        });
+        socket.once('response_change_user_account_profile', (resp)=>{ log('profile response: ' + JSON.stringify(resp)); res(); });
+      });
+
+      log('Smoke actions finished');
+    });
+  </script>
+</body>
+</html>

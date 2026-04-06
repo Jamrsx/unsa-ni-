@@ -1,0 +1,38 @@
+Overview — tables changed / created
+
+problem_test_runs: Created — new history table for admin/test-run snapshots.
+
+Purpose: store per-run results instead of using solution_submissions.
+Key columns (added): test_run_id (PK), problem_id, user_id, passed, total, verdict, results (JSON/text), score, submitted_at.
+Note: server now INSERTs admin/test runs here.
+content_problems: Altered — added quick-read last-run columns and status/index work.
+
+Added columns: last_passed, last_total, last_verdict, last_score, last_result (JSON/text), last_run_at.
+Existing/updated: status was backfilled from approvals.
+Indexes: added index on status.
+Behavior: content_problems.last_* is used for list rendering; server updates these only for non-approved problems (admin tests do not overwrite last-run for approved problems).
+solution_submissions: Schema change + migration/archival work.
+
+Changes: submission_id made AUTO_INCREMENT and submission_code allowed NULL.
+Policy: No longer used for admin/test-run snapshots — gameplay retains its use.
+Migration: conservative candidate rows (rows with empty submission_code) were copied out and migrated.
+solution_submissions_archive (or equivalent archive table): Created by migration script.
+
+Purpose: archive copied rows from solution_submissions before deletion.
+Migration / SQL scripts (saved in sql)
+
+sql/create_problem_test_runs_and_last_run_columns.sql — creates problem_test_runs and alters content_problems.
+sql/migrate_solution_submissions_to_problem_test_runs.sql — copies conservative rows from solution_submissions into problem_test_runs.
+sql/archive_and_delete_migrated_solution_submissions.sql — archives then deletes migrated rows from solution_submissions.
+Server-side behavior changes
+
+New flow: admin/test-run → INSERT into problem_test_runs; optionally update content_problems.last_* only when status != 'approved'.
+List endpoints: prefer content_problems.last_* for fast reads, fallback to latest row from problem_test_runs for details when needed.
+Avoid: writing ad-hoc test snapshots into solution_submissions.
+Developer coordination notes (what to tell the team)
+
+Freeze or avoid concurrent schema edits on these tables (problem_test_runs, content_problems, solution_submissions) until migrations complete and reviewed.
+Avoid adding new writes for admin/test-run snapshots to solution_submissions; use problem_test_runs.
+Be aware content_problems.last_* columns exist for quick reads — do not overwrite them for approved problems unless intentional.
+Migration was conservative: only rows with empty submission_code were migrated and archived; archived copy exists in solution_submissions_archive.
+SQL file locations to review: sql/create_problem_test_runs_and_last_run_columns.sql, sql/migrate_solution_submissions_to_problem_test_runs.sql, sql/archive_and_delete_migrated_solution_submissions.sql.

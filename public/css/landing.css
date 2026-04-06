@@ -1,0 +1,36 @@
+/* landing.css - extracted/organized styles for Landing page
+   Source: selected rules from style.css and mainpage.css tailored for landing layout */
+
+:root{
+  --c_lightcoding: #97ADAB;
+  --c_whitemain: #FFF9F9;
+  --c_darktrans: rgba(24,24,24,0.7);
+}
+
+/* Ensure main container fills viewport like other pages */
+.main-container{ 
+  position: relative;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: transparent;
+}
+
+/* Landing hero */
+.landing-hero{ display:flex; gap:24px; align-items:center; }
+.hero-left{ flex:1 1 60%; }
+.hero-right{ flex:0 0 35%; display:flex; justify-content:center }
+
+.lead{ color: var(--c_lightcoding); font-size:1.05rem; }
+
+/* Window component tuning for landing */
+.body-window{ background: var(--c_darktrans); padding: 28px; margin: 20px; border-radius: 8px; }
+
+/* Button tweaks to match main page look */
+.img-btn { border-radius: 12px; }
+.txt-btn{ border-radius: 12px; padding: 10px 20px; }
+
+/* Responsive */
+@media (max-width: 768px){
+  .landing-hero{ flex-direction:column; }
+  .hero-right{ width:100%; }
+}

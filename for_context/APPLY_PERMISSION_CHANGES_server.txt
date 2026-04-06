@@ -1,0 +1,39 @@
+// SERVER.JS CHANGES
+// Add this helper function after verifyAdmin (around line 3301):
+
+// Helper: check if user has a specific permission (from role or user-specific override)
+async function hasPermission(userId, permissionName) {
+    if (!userId || !permissionName) return false;
+    
+    const [rows] = await db.query(
+        `
+        SELECT 
+            COALESCE(up.is_granted, rp.permission_id) as has_perm
+        FROM permissions p
+        LEFT JOIN role_permissions rp ON p.permission_id = rp.permission_id
+        LEFT JOIN user_roles ur ON rp.role_id = ur.role_id AND ur.user_id = ?
+        LEFT JOIN user_permissions up ON p.permission_id = up.permission_id AND up.user_id = ?
+        WHERE p.permission_name = ?
+        LIMIT 1
+        `,
+        [userId, userId, permissionName]
+    );
+    
+    return rows.length > 0 && rows[0].has_perm !== null && rows[0].has_perm !== 0;
+}
+
+// UPDATE THESE LINES (around line 1057-1059):
+// OLD:
+//   registerUserSocketHandlers(socket, db, bcrypt, jwt, { verifySession, verifyAdmin, getUserPrimaryRole, deriveCategory });
+//   registerFacultySocketHandlers(socket, db, bcrypt, jwt, { verifySession, verifyAdmin, getUserPrimaryRole, deriveCategory }, io);
+
+// NEW:
+registerUserSocketHandlers(socket, db, bcrypt, jwt, { verifySession, verifyAdmin, hasPermission, getUserPrimaryRole, deriveCategory });
+registerFacultySocketHandlers(socket, db, bcrypt, jwt, { verifySession, verifyAdmin, hasPermission, getUserPrimaryRole, deriveCategory }, io);
+
+// UPDATE THIS LINE (around line 201):
+// OLD:
+//   registerFacultyHttp({ app, db, bcrypt, jwt, helpers: { verifySession, verifyAdmin, getUserPrimaryRole, deriveCategory }, io });
+
+// NEW:
+registerFacultyHttp({ app, db, bcrypt, jwt, helpers: { verifySession, verifyAdmin, hasPermission, getUserPrimaryRole, deriveCategory }, io });

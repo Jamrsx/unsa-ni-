@@ -1,0 +1,8 @@
+add this context background for this entire chat session (dont forget). you can edit txt file to DuelCode-Capstone-Project/for_contenxt/context_session.txt to make this for context for this following:
+
+- refer 'DuelCode-Capstone-Project/' for running terminals node server.js and npm run dev and make sure remain on ports 3000 on node server.js while 5173 for npm run dev (need to close them then rerun if have to)
+- use DuelCode-Capstone-Project/for_context/ to connect chat to database 'duelcode_capstone_project' for reference and context or to read and update there.
+thats all, ill send instructions later.
+
+---
+2025-12-19: Read and noted by assistant — will use `for_context/db_get_tables.js` together with `db.js` to list database tables and inform next steps for Faculty dashboard creation. Ensure local MySQL is running and env vars (`DB_HOST`, `DB_USER`, `DB_PASS`, `DB_NAME`) are set when running helpers.

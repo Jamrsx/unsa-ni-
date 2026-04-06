@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Account | CodeDuel</title>
+</head>
+<body>
+  <header>
+    <h1>CodeDuel</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Single</a>
+      <a href="#">Duel</a>
+      <a href="#">Leaderboards</a>
+    </nav>
+    <div class="settings">
+      <button>⚙️</button>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <ul>
+        <li><a href="user-account.html">My account</a></li>
+        <li><a href="user-edit-account.html">Edit account</a></li>
+        <li><a href="user-duel-history.html">Duel History</a></li>
+        <li><a href="user-mail.html">Mail</a></li>
+      </ul>
+      <button>Log out</button>
+    </aside>
+
+    <section class="edit-account">
+      <div class="account-info">
+        <h2>Edit account</h2>
+        <div class="avatar">
+          <img src="https://via.placeholder.com/100" alt="User Avatar">
+        </div>
+        <h3>Username</h3>
+        <p>example@email.com</p>
+      </div>
+
+      <form>
+        <div>
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Username">
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="example@email.com">
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••">
+        </div>
+
+        <div>
+          <label for="confirm-password">Confirmed Password</label>
+          <input type="password" id="confirm-password" placeholder="••••••••">
+        </div>
+
+        <div class="buttons">
+          <button type="button">Cancel</button>
+          <button type="submit">Save</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

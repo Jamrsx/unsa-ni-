@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue 3 + Vite Hybrid Editable Zones</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mainpage.css">
+
+    <!-- bootstrap module -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <script src="css/bootstrap/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Lightweight smart router for root entry point
+      (function() {
+        const token = localStorage.getItem('jwt_token') || localStorage.getItem('token');
+        if (!token) {
+          window.location.href = '/signin.html';
+          return;
+        }
+
+        try {
+          // Simple JWT decode to obtain role for immediate redirection during dev/hydrating
+          const payload = JSON.parse(atob(token.split('.')[1]));
+          const role = (payload.role || '').toLowerCase();
+          
+          console.log('[Router] Authenticated role detected:', role);
+          
+          if (role === 'admin') window.location.href = '/admin-dashboard.html';
+          else if (role === 'faculty') window.location.href = '/faculty-dashboard.html';
+          else window.location.href = '/user-dashboard.html';
+        } catch (e) {
+          console.error('[Router] Token corruption or parse error, clearing session');
+          localStorage.removeItem('jwt_token');
+          localStorage.removeItem('token');
+          window.location.href = '/signin.html';
+        }
+      })();
+    </script>
+</head>
+
+<body>
+    
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

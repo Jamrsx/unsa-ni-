@@ -1,0 +1,98 @@
+// DASHBOARD_ADMIN_AND_USER_SOCKET.JS CHANGES
+
+// 1. UPDATE THE HELPERS DESTRUCTURING (around line 2):
+// OLD:
+//   const { verifySession, verifyAdmin, getUserPrimaryRole, deriveCategory } = helpers;
+
+// NEW:
+const { verifySession, verifyAdmin, hasPermission, getUserPrimaryRole, deriveCategory } = helpers;
+
+// 2. UPDATE request_approve_blog (around line 1730):
+// REPLACE:
+//   const isAdmin = await verifyAdmin(session);
+//   if (!isAdmin) {
+//       socket.emit('response_approve_blog', { success: false, message: 'Unauthorized: Admin access required' });
+//       return;
+//   }
+
+// WITH:
+const canApprove = await hasPermission(session.userId, 'approve_blog');
+if (!canApprove) {
+    socket.emit('response_approve_blog', { success: false, message: 'Unauthorized: You do not have permission to approve blogs' });
+    return;
+}
+
+// 3. UPDATE request_approve_event (around line 1820):
+// REPLACE:
+//   const isAdmin = await verifyAdmin(session);
+//   if (!isAdmin) {
+//       socket.emit('response_approve_event', { success: false, message: 'Unauthorized: Admin access required' });
+//       return;
+//   }
+
+// WITH:
+const canApprove = await hasPermission(session.userId, 'approve_event');
+if (!canApprove) {
+    socket.emit('response_approve_event', { success: false, message: 'Unauthorized: You do not have permission to approve events' });
+    return;
+}
+
+// 4. UPDATE request_deny_event (around line 1903):
+// REPLACE:
+//   const isAdmin = await verifyAdmin(session);
+//   if (!isAdmin) {
+//       socket.emit('response_deny_event', { success: false, message: 'Unauthorized: Admin access required' });
+//       return;
+//   }
+
+// WITH:
+const canDeny = await hasPermission(session.userId, 'deny_event');
+if (!canDeny) {
+    socket.emit('response_deny_event', { success: false, message: 'Unauthorized: You do not have permission to deny events' });
+    return;
+}
+
+// 5. UPDATE request_deny_blog (around line 1962):
+// REPLACE:
+//   const isAdmin = await verifyAdmin(session);
+//   if (!isAdmin) {
+//       socket.emit('response_deny_blog', { success: false, message: 'Unauthorized: Admin access required' });
+//       return;
+//   }
+
+// WITH:
+const canDeny = await hasPermission(session.userId, 'deny_blog');
+if (!canDeny) {
+    socket.emit('response_deny_blog', { success: false, message: 'Unauthorized: You do not have permission to deny blogs' });
+    return;
+}
+
+// 6. UPDATE request_approve_question (around line 2530):
+// REPLACE:
+//   const isAdmin = await verifyAdmin(session);
+//   if (!isAdmin) {
+//       socket.emit('response_approve_question', { success: false, message: 'Unauthorized: Admin access required' });
+//       return;
+//   }
+
+// WITH:
+const canApprove = await hasPermission(session.userId, 'approve_problem');
+if (!canApprove) {
+    socket.emit('response_approve_question', { success: false, message: 'Unauthorized: You do not have permission to approve problems' });
+    return;
+}
+
+// 7. UPDATE request_deny_question (around line 2614):
+// REPLACE:
+//   const isAdmin = await verifyAdmin(session);
+//   if (!isAdmin) {
+//       socket.emit('response_deny_question', { success: false, message: 'Unauthorized: Admin access required' });
+//       return;
+//   }
+
+// WITH:
+const canDeny = await hasPermission(session.userId, 'deny_problem');
+if (!canDeny) {
+    socket.emit('response_deny_question', { success: false, message: 'Unauthorized: You do not have permission to deny problems' });
+    return;
+}

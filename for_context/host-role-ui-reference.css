@@ -1,0 +1,63 @@
+/* Additional styles for enhanced host role selector - already integrated in room-setting-panel.vue */
+
+/* 
+UI LAYOUT:
+┌─────────────────────────────────────────────────────────────┐
+│ Room Settings (Host Only)                                    │
+├─────────────────────────────────────────────────────────────┤
+│ Allow spectator  [toggle switch]                            │
+│                                                              │
+│ ╔═══════════════════════════════════════════════════════╗  │
+│ ║ Your Role (Host):                                      ║  │
+│ ║                                                         ║  │
+│ ║ ┌─────────────────────────────────────────────┐       ║  │
+│ ║ │ ● 🎮  Join as Player                         │       ║  │
+│ ║ │        Participate in match                  │ <--- ACTIVE
+│ ║ └─────────────────────────────────────────────┘       ║  │
+│ ║                                                         ║  │
+│ ║ ┌─────────────────────────────────────────────┐       ║  │
+│ ║ │ ○ 👁️  Spectate Only                          │       ║  │
+│ ║ │        Observe without playing               │       ║  │
+│ ║ └─────────────────────────────────────────────┘       ║  │
+│ ╚═══════════════════════════════════════════════════════╝  │
+│                                                              │
+│ [When spectator selected:]                                  │
+│ ⚠️ As spectator, you won't take a player slot and          │
+│    cannot participate                                        │
+└─────────────────────────────────────────────────────────────┘
+
+VISUAL STATES:
+
+1. Default (Player Mode):
+   - "Join as Player" has blue border and gradient background
+   - Radio button is filled
+   - Player icon 🎮 is shown
+   
+2. Spectator Mode:
+   - "Spectate Only" has blue border and gradient background  
+   - Radio button is filled
+   - Eye icon 👁️ is shown
+   - Yellow warning box appears below
+   
+3. Hover Effect:
+   - Option shifts 3px to the right
+   - Border color brightens
+   - Box shadow appears
+
+CSS CLASSES:
+.host-role-selector - Main container with gradient background
+.role-label - "Your Role (Host):" text
+.role-options - Flex container for radio options
+.role-option - Individual radio button container
+.role-option.active - Currently selected option
+.role-icon - Emoji icon (🎮 or 👁️)
+.role-text - "Join as Player" or "Spectate Only"
+.role-desc - Descriptive text below
+.role-warning - Yellow warning box
+
+INTERACTION:
+- Click anywhere on the option box to select
+- Automatic save to database
+- Page reloads when switching TO spectator (not FROM)
+- Disabled state while saving (prevents spam clicks)
+*/

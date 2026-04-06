@@ -1,0 +1,159 @@
+/* Faculty Dashboard styles mirroring admin dashboard */
+
+#faculty-dash_app .body-window{
+    padding: 0px;
+    background-color: var(--c_whitemain);
+}
+#faculty-dash_app > section{ width: 100%; }
+#faculty-dash_app .split-layout>section.content-area {
+    width: 100%;
+    color: var(--c_darkgreen);
+    overflow: inherit;
+}
+
+/* table container */
+.user-dashboard-container #faculty-dash_app .table-responsive {
+    overflow: hidden;
+    max-height: 85vh;
+    overflow-y: scroll;
+}
+.user-dashboard-container #faculty-dash_app .table-responsive table {
+    color: var(--c_whitemain);
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+}
+.user-dashboard-container #faculty-dash_app .table-responsive table thead {
+    background-color: var(--v_table-background);
+    position: sticky; top: 0; z-index: 1;
+}
+.user-dashboard-container #faculty-dash_app .table-responsive table tbody { overflow-y: scroll; }
+.user-dashboard-container #faculty-dash_app .table-responsive table tbody tr {
+    background-color: var(--c_backgroundcoding);
+    border: 0px none transparent; vertical-align: middle;
+}
+.user-dashboard-container #faculty-dash_app .table-responsive table tbody tr:nth-child(odd) {
+    background-color: var(--c_slightlightcoding);
+}
+.user-dashboard-container #faculty-dash_app .table-responsive table tbody tr td:first-child {
+    border-top-left-radius: var(--v_table-radius);
+    border-bottom-left-radius: var(--v_table-radius);
+}
+.user-dashboard-container #faculty-dash_app .table-responsive table tbody tr td:last-child {
+    border-top-right-radius: var(--v_table-radius);
+    border-bottom-right-radius: var(--v_table-radius);
+}
+
+/* all .split-section */
+.user-dashboard-container #faculty-dash_app .split-layout .split-section .flex-row section:nth-child(1) {
+    width: 100%;
+}
+
+/* account */
+#faculty-dash_app .split-layout img.profile-pic_icon { background-color: var(--c_whitemain); max-width: 200px; }
+#faculty-dash_app .split-layout .row-account { display: flex; }
+#faculty-dash_app .split-layout .row-account .col:nth-child(1) { flex: 0 1 0%; margin-right: 20px; }
+#faculty-dash_app .split-layout .row-account .col:nth-child(2).row-account-detail{ display: flex; flex-direction: column; justify-content: center; }
+#faculty-dash_app .split-layout .row-account .col:nth-child(2).row-account-detail .col h1 { margin: 0px; }
+#faculty-dash_app .split-layout .row-account .col:nth-child(2).row-account-detail .col p{ color: var(--c_lightcoding); }
+
+/* dashboard */
+#faculty-dash_app .split-layout #dashboard > .row > .row.col:nth-child(1){ padding: 10px; align-items: stretch; }
+#faculty-dash_app .split-layout #dashboard > .row > .row.col:nth-child(1) > .col:nth-child(1){ border-right: 2px solid var(--c_lightcoding); }
+#faculty-dash_app .split-layout #dashboard > .row > .row.col:nth-child(1) > .col { display: flex; align-items: center; flex: 1; }
+#faculty-dash_app .split-layout #dashboard .grid-layout-container .row .col-5{ background-color: var(--c_mediumcoding); padding: 10px; border-radius: 15px; }
+#faculty-dash_app .split-layout #dashboard .grid-layout-container .row .col-5 #setting_btn{ background-color: transparent; }
+#faculty-dash_app .split-layout #dashboard .grid-layout-container .row .col-5 #setting_btn>img.img-btn_logo { max-width: 3vw; }
+#faculty-dash_app .split-layout #dashboard .grid-layout-container .row .col-5 h4{ color: var(--c_lightcoding); }
+#faculty-dash_app .split-layout #dashboard .grid-layout-container .row .col-5 h2 { color: var(--c_whitemain); }
+#faculty-dash_app .split-layout #dashboard .card-event-thumb_link{ height: 100%; color: var(--c_whitemain); display: flex; justify-content: center; }
+#faculty-dash_app .split-layout #dashboard .card-event-thumb_link .card-thumb{ height: 100%; }
+#faculty-dash_app .split-layout #dashboard .card-event-thumb_link .card-thumb p{ margin: 0px; }
+#faculty-dash_app .split-layout #dashboard .card-event-thumb_link .card-thumb .card-thumb_img{ height: 100%; }
+#faculty-dash_app .split-layout #dashboard .card-event-thumb_link .card-thumb .card-thumb_img img{ height: auto; max-height: inherit; }
+
+/* edit_account */
+#faculty-dash_app .split-layout #edit_account form.row-edit-account{ flex-direction: column; }
+#faculty-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(1){ display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0px; }
+#faculty-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(1) .form-control{ background-color: var(--c_slightlightcoding); border: none; color: var(--c_lightcoding); }
+#faculty-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(2){ display: flex; flex-direction: row; justify-content: end; gap: 10px; }
+#faculty-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(2) > *{ max-width: 200px; padding: 10px; border-radius: 20px; }
+#faculty-dash_app .split-layout #edit_account form.row-edit-account .col:nth-child(2) > .edit_account_cancel_button{ background-color: var(--c_slightlightcoding); color: var(--c_whitemain); }
+
+/* users */
+.user-dashboard-container #faculty-dash_app .split-layout #users{ --v_table-radius: 60px; --v_table-background: var(--c_darkgreen); }
+.user-dashboard-container #faculty-dash_app .split-layout #users{ background-color: var(--v_table-background); color: var(--c_whitemain); padding: 10px; }
+.user-dashboard-container #faculty-dash_app .split-layout #users .body-window{ background-color: var(--v_table-background); }
+.user-dashboard-container #faculty-dash_app .split-layout #users .user-table{ overflow: hidden; max-height: 85vh; overflow-y: scroll; }
+.user-dashboard-container #faculty-dash_app .split-layout #users .user-table table{ color: var(--c_whitemain); width: 100%; border-collapse: separate; border-spacing: 0 20px; }
+.user-dashboard-container #faculty-dash_app .split-layout #users .user-table table thead{ background-color: var(--v_table-background); position: sticky; top:0; z-index:1; }
+.user-dashboard-container #faculty-dash_app .split-layout #users .user-table table tbody{ overflow-y: scroll; }
+.user-dashboard-container #faculty-dash_app .split-layout #users .user-table table tbody tr{ background-color: var(--c_backgroundcoding); border: 0px none transparent; vertical-align: middle; }
+.user-dashboard-container #faculty-dash_app .split-layout #users .user-table table tbody tr:nth-child(odd){ background-color: var(--c_slightlightcoding); }
+.user-dashboard-container #faculty-dash_app .split-layout #users .user-table table tbody tr td:first-child{ border-top-left-radius: var(--v_table-radius); border-bottom-left-radius: var(--v_table-radius); }
+.user-dashboard-container #faculty-dash_app .split-layout #users .user-table table tbody tr td:last-child{ border-top-right-radius: var(--v_table-radius); border-bottom-right-radius: var(--v_table-radius); }
+
+/* Pending table button icons (problems, events, blogs) */
+.user-dashboard-container #faculty-dash_app .split-layout .top-split-main-window .split-section#problem_pending .table-container table .img-btn-bg button.img-btn,
+.user-dashboard-container #faculty-dash_app .split-layout .top-split-main-window .split-section#event_pending .table-container table .img-btn-bg button.img-btn,
+.user-dashboard-container #faculty-dash_app .split-layout .top-split-main-window .split-section#blog_pending .table-container table .img-btn-bg button.img-btn {
+    width: 100%;
+    max-width: 40px;
+    aspect-ratio: 1/1;
+}
+.user-dashboard-container #faculty-dash_app .split-layout .top-split-main-window .split-section#problem_pending .table-container table .img-btn-bg button.img-btn.pending_table_check_btn,
+.user-dashboard-container #faculty-dash_app .split-layout .top-split-main-window .split-section#event_pending .table-container table .img-btn-bg button.img-btn.pending_table_check_btn,
+.user-dashboard-container #faculty-dash_app .split-layout .top-split-main-window .split-section#blog_pending .table-container table .img-btn-bg button.img-btn.pending_table_check_btn {
+    background: var(--c_greenmain);
+    mask: url(../asset/general/checked.png) no-repeat center;
+    mask-size: cover;
+    -webkit-mask: url(../asset/general/checked.png) no-repeat center;
+    -webkit-mask-size: cover;
+}
+.user-dashboard-container #faculty-dash_app .split-layout .top-split-main-window .split-section#problem_pending .table-container table .img-btn-bg button.img-btn.pending_table_deny_btn,
+.user-dashboard-container #faculty-dash_app .split-layout .top-split-main-window .split-section#event_pending .table-container table .img-btn-bg button.img-btn.pending_table_deny_btn,
+.user-dashboard-container #faculty-dash_app .split-layout .top-split-main-window .split-section#blog_pending .table-container table .img-btn-bg button.img-btn.pending_table_deny_btn {
+    background: var(--c_redwarning);
+    mask: url(../asset/general/remove.png) no-repeat center;
+    mask-size: cover;
+    -webkit-mask: url(../asset/general/remove.png) no-repeat center;
+    -webkit-mask-size: cover;
+}
+
+/* Pending approvals button icons (events, blogs, problems) */
+.user-dashboard-container #faculty-dash_app .split-layout #approvals .top-split-main-window .split-section .table-responsive table.table .img-btn-bg button.img-btn {
+    width: 100%;
+    max-width: 40px;
+    aspect-ratio: 1/1;
+}
+.user-dashboard-container #faculty-dash_app .split-layout #approvals .top-split-main-window .split-section .table-responsive table.table .img-btn-bg button.img-btn.pending_table_check_btn {
+    background: var(--c_greenmain);
+    mask: url(../asset/general/checked.png) no-repeat center;
+    mask-size: cover;
+    -webkit-mask: url(../asset/general/checked.png) no-repeat center;
+    -webkit-mask-size: cover;
+}
+.user-dashboard-container #faculty-dash_app .split-layout #approvals .top-split-main-window .split-section .table-responsive table.table .img-btn-bg button.img-btn.pending_table_deny_btn {
+    background: var(--c_redwarning);
+    mask: url(../asset/general/remove.png) no-repeat center;
+    mask-size: cover;
+    -webkit-mask: url(../asset/general/remove.png) no-repeat center;
+    -webkit-mask-size: cover;
+}
+
+/* split main window shared */
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window{ display:flex; flex-direction:column; height:100%; width:100%; }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window aside.row{ display:flex; flex-direction:row; align-items:center; }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window aside{ background-color:transparent; font-weight:lighter; flex:0 1 0%; width:auto; }
+.user-dashboard-container #faculty-dash_app>section>.body-window>.split-layout .top-split-main-window aside nav{ min-height:0; }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window aside nav ul{ margin-top:20px; padding:0; display:flex; margin:0; }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window aside nav ul li{ color:var(--c_lightcoding); font-weight:bolder; }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window aside nav ul li:not(:last-child){ border-right:2px solid var(--c_darkgreen); }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window aside .split-aside-logout{ background-color:transparent; color:var(--c_whitemain); flex:0 1 0%; padding:10px; justify-content:end; }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window .content-area{ background-color:var(--v_table-background); flex:1; padding:10px; overflow-y:auto; }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window .nav-item{ list-style:none; cursor:pointer; user-select:none; padding:10px; transition:background .2s; }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window .nav-item:hover{ background-color:transparent; color:var(--c_mediumcoding); }
+.user-dashboard-container #faculty-dash_app>section>.body-window>.split-layout .top-split-main-window .nav-item.active{ color:var(--c_backgroundcoding); }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window .nav-item:active{ background:#ddd; }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window .split-section{ margin-bottom:2rem; }
+.user-dashboard-container #faculty-dash_app > section > .body-window > .split-layout .top-split-main-window .split-section .split-label{ color:var(--c_whitemain); margin-bottom:.5rem; }

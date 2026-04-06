@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lobby Match | CodeDuel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mainpage.css">
+  <link rel="stylesheet" href="css/onboarding.css">
+  <link rel="stylesheet" href="css/lobby-onboarding.css">
+
+  <!-- bootstrap module -->
+  <link rel="stylesheet" href="css/bootstrap-icons/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+  <script src="css/bootstrap/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- 🔧 HARD-CODED DEBUG SCRIPT -->
+  <script>
+    console.log('🔧 [HTML DEBUG] 1. Document loaded');
+    console.log('🔧 [HTML DEBUG] 2. URL:', window.location.href);
+    console.log('🔧 [HTML DEBUG] 3. URL params:', new URLSearchParams(window.location.search).toString());
+    
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log('🔧 [HTML DEBUG] 4. DOM Content Loaded');
+      const mountPoint = document.getElementById('lobby_onboarding_app');
+      console.log('🔧 [HTML DEBUG] 5. Mount point exists:', !!mountPoint);
+      console.log('🔧 [HTML DEBUG] 6. Mount point element:', mountPoint);
+      
+      // Watch for Vue mounting
+      const observer = new MutationObserver((mutations) => {
+        console.log('🔧 [HTML DEBUG] 7. DOM mutation detected - Vue may be mounting');
+        if (mountPoint && mountPoint.children.length > 0) {
+          console.log('🔧 [HTML DEBUG] 8. ✅ Content rendered in mount point!');
+          console.log('🔧 [HTML DEBUG] 9. Children count:', mountPoint.children.length);
+        }
+      });
+      
+      if (mountPoint) {
+        observer.observe(mountPoint, { childList: true, subtree: true });
+      }
+    });
+  </script>
+</head>
+<body>
+  <!-- Main container -->
+  <main class="main-container onboarding-container lobby-onboarding-container">
+    <div class="flex-container" id="lobby_onboarding_app">
+      <!-- 🔧 DEBUG: Fallback content to verify mount point -->
+      <div style="padding: 20px; background: #ffeb3b; color: #000; font-size: 18px; font-weight: bold;">
+        🔧 MOUNT POINT VISIBLE - Waiting for Vue to mount...
+      </div>
+    </div>
+  </main>
+
+  <!-- Load Vue app -->
+  <script type="module" src="/src/main.js"></script>
+  
+  <!-- 🔧 HARD-CODED DEBUG: Verify script loading -->
+  <script>
+    console.log('🔧 [HTML DEBUG] 10. Bottom of page reached - main.js should be loading');
+  </script>
+</body>
+</html>

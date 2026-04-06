@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Management</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a href="admin-dashboard.html">Dashboard</a></li>
+      <li><a href="admin-edit-account.html">Edit Account</a></li>
+      <li><a href="admin-events.html">Events</a></li>
+      <li><a href="admin-student.html">Student Management</a></li>
+      <li><a href="admin-management.html" class="active">Admin Management</a></li>
+      <li><a href="admin-reports.html">Reports</a></li>
+      <li><a href="admin-audit.html">Audit Trail</a></li>
+      <li><a href="admin-backup.html">System Backup</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>Admin Management</h1>
+    </header>
+
+    <section class="content">
+      <form>
+        <label>New Admin Name</label>
+        <input type="text" placeholder="Enter name">
+        <label>Email</label>
+        <input type="email" placeholder="Enter email">
+        <label>Password</label>
+        <input type="password" placeholder="Set password">
+        <button type="submit">Add Admin</button>
+      </form>
+
+      <h3>Current Admins</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date Added</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Paul Admin</td>
+            <td>paul.admin@example.com</td>
+            <td>2025-10-11</td>
+            <td>
+              <button>Edit</button>
+              <button class="danger">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>

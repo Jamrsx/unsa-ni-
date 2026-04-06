@@ -1,0 +1,99 @@
+.duel-container .mode-select .row .col .img-btn{
+    width: 100%;
+    height: 100%;
+}
+.duel-container .player-brief-stat .column .row .col:not(:last-child){
+    text-wrap: nowrap;
+    content: "";
+    right: 0;
+    top: 0;
+    border-right: 2px solid var(--c_whitemain);
+}
+
+.duel-container #modal_match_id .modal-body .player-match-label{
+    display: flex;
+    flex-direction: row;
+}
+.duel-container #modal_match_id .modal-body .player-match-label {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    color: var(--c_darkgreen);
+}
+.duel-container #modal_match_id .modal-body .player-match-label > div > img{
+    flex: 1 1 0;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+.duel-container #modal_match_id .modal-body .player-match-label>div:nth-child(2) {
+    width: 100%;
+}
+
+.duel-container #modal_match_id .modal-footer{
+    justify-content: center;
+}
+
+/* solo - clcickable tr */
+.solo-container #solo_app .solo-table .solo-table-row{
+    cursor: pointer;
+}
+
+/* solo table design */
+.solo-container {
+    --v_table-radius: 60px;
+    --v_table-background: var(--c_darkgreen);
+}
+
+.solo-container #solo_app .body-window {
+    background-color: var(--v_table-background);
+}
+
+.solo-container #solo_app .vertical-carousel-container .vertical-carousel-scroll {
+    overflow: hidden;
+}
+
+.solo-container #solo_app .solo-table {
+    overflow: hidden;
+    max-height: 85vh;
+    /* temporaray fix, f*** bs5 tables i guess */
+    overflow-y: scroll;
+}
+
+.solo-container #solo_app .solo-table table {
+    color: var(--c_whitemain);
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+}
+
+.solo-container #solo_app .solo-table table thead {
+    background-color: var(--v_table-background);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.solo-container #solo_app .solo-table table tbody {
+    overflow-y: scroll;
+}
+
+.solo-container #solo_app .solo-table table tbody tr {
+    background-color: var(--c_backgroundcoding);
+    border: 0px none transparent;
+    vertical-align: middle;
+}
+
+.solo-container #solo_app .solo-table table tbody tr:nth-child(odd) {
+    background-color: var(--c_slightlightcoding);
+}
+
+.solo-container #solo_app .solo-table table tbody tr td:first-child {
+    border-top-left-radius: var(--v_table-radius);
+    border-bottom-left-radius: var(--v_table-radius);
+}
+
+.solo-container #solo_app .solo-table table tbody tr td:last-child {
+    border-top-right-radius: var(--v_table-radius);
+    border-bottom-right-radius: var(--v_table-radius);
+}

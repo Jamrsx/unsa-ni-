@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a href="admin-dashboard.html">Dashboard</a></li>
+      <li><a href="admin-edit-account.html">Edit Account</a></li>
+      <li><a href="admin-events.html" class="active">Events</a></li>
+      <li><a href="admin-student.html">Student Management</a></li>
+      <li><a href="admin-management.html">Admin Management</a></li>
+      <li><a href="admin-reports.html">Reports</a></li>
+      <li><a href="admin-audit.html">Audit Trail</a></li>
+      <li><a href="admin-backup.html">System Backup</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>Events</h1>
+    </header>
+
+    <section class="content">
+      <form>
+        <label>Event Title</label>
+        <input type="text" placeholder="Enter event title">
+
+        <label>Date</label>
+        <input type="date">
+
+        <label>Description (optional)</label>
+        <textarea placeholder="Write a short event description..."></textarea>
+
+        <label>Attach File (optional)</label>
+        <input type="file">
+
+        <button type="submit">Create Event</button>
+      </form>
+
+      <h3>Upcoming Events</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Orientation 2025</td>
+            <td>2025-11-05</td>
+            <td>Welcome to the new semester!</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>
